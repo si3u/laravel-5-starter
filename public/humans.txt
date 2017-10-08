@@ -1,0 +1,32 @@
+/* 
+	wwwwwwww                 wwwwwwww  iiiiiii    cccccccccccccccc    oooooooooooooooo    ddddddddddd
+	 w **** w               w **** w   i *** i    c ************ c    o ************ o    d ******** d
+	  w **** w    wwwww    w **** w    i *** i    c ************ c    o ************ o    d ********* d
+	   w **** w  w *** w  w **** w     i *** i    c *** cccccccccc    o ** oooooo ** o    d ** ddd *** d
+	    w **** ww ***** ww **** w      i *** i    c *** c             o ** o    o ** o    d ** d  d *** d
+	     w ******************* w       i *** i    c *** c             o ** o    o ** o    d ** d   d *** d
+	      w ***************** w        i *** i    c *** c             o ** o    o ** o    d ** d   d *** d
+	       w ****** w ****** w         i *** i    c *** cccccccccc    o ** oooooo ** o    d ** dddd **** d
+	        w **** w w **** w          i *** i    c ************ c    o ************ o    d ************ d
+	         w ** w   w ** w           i *** i    c ************ c    o ************ o    d ************ d
+	          wwww     wwww            iiiiiii    cccccccccccccccc    oooooooooooooooo    dddddddddddddd*
+	          
+	       W E B   D E V E L O P P E M E N T S      &      M A I N T E N A N C E   I N F O R M A T I Q U E  */
+
+/* TEAM */
+	Society: WICOD
+	Chef: Roth Nicolas
+	Contact: contact [at] wicod.fr
+	From: Arches, Vosges, France
+
+
+/* THANKS */
+	(First) Helper: Everyone in my family and friendly
+
+
+/* SITE */
+	last-update:2017/10/01
+	language: French
+	Doctype: HTML5
+	IDE: NetBeans IDE 8.2, FileZilla, Gimp, Blender
+
