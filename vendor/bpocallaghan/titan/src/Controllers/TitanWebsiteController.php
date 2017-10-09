@@ -42,16 +42,33 @@ class TitanWebsiteController extends TitanController
      */
     protected function view($view, $data = [])
     {
-        return view($this->baseViewPath . $this->baseViewSubPath . $view, $data)
-            ->with('HTMLTitle', $this->getTitle())
-            ->with('HTMLDescription', $this->getDescription())
-            ->with('HTMLImage', $this->getImage())
-            ->with('navigation', $this->generateNavigation())
-            ->with('breadcrumb', $this->breadcrumbHTML())
-            ->with('pageTitle', $this->getPageTitle())
-            ->with('selectedNavigation', $this->selectedNavigation);
+        return $this->minifier( 
+		view($this->baseViewPath . $this->baseViewSubPath . $view, $data)
+		    ->with('HTMLTitle', $this->getTitle())
+		    ->with('HTMLDescription', $this->getDescription())
+		    ->with('HTMLImage', $this->getImage())
+		    ->with('navigation', $this->generateNavigation())
+		    ->with('breadcrumb', $this->breadcrumbHTML())
+		    ->with('pageTitle', $this->getPageTitle())
+		    ->with('selectedNavigation', $this->selectedNavigation)
+		);
     }
 
+
+	/**
+	 * Minifie les pages en mode en production
+	 * 
+	 * @param view
+	 */
+	public function minifier($view)
+	{
+		if(env('APP_ENV') != 'local' || env('APP_ENV') != 'dev') {
+			return HTMLMin::html(HTMLMin::css($view)); // Compression
+		} else {
+			return $view;
+		}
+	}
+	
     /**
      * Get the html title (check for crud reserve word)
      * @return string
@@ -122,8 +139,8 @@ class TitanWebsiteController extends TitanController
         // when nothing - fall back to home
         if (!$nav) {
             $nav = NavigationWebsite::find(1);
-            if (config('app.env') == 'local' && !$nav) {
-				dd('Oops. Navigation non trouvée - voir si l\'url est dans la base de données (navigation_admin) - Message d\'erreur de TitanWebsiteController.php ligne:127 - voir à changer "local" par "dev" dans le .env');
+            if (config('app.env') == 'dev' && !$nav) {
+				dd('Oops. Navigation non trouvée - voir si l\'url est dans la base de données (navigation_website) - Message d\'erreur de TitanWebsiteController.php ligne:127 - voir à changer "local" par "dev" dans le .env');
             }
         }
 
@@ -143,7 +160,7 @@ class TitanWebsiteController extends TitanController
      * Generate the Main Navigation's HTML + show Active
      * @return string
      */
-    protected function generateNavigation()
+    public function generateNavigation()
     {
         $html = '';
         $navigation = NavigationWebsite::mainNavigation();

@@ -63,27 +63,11 @@ class TitanController extends Controller
      */
     protected function view($view, $data = [])
     {
-        return $this->minifier(
-					view($this->baseViewPath . $view, $data)
-								->with('HTMLTitle', $this->getTitle())
-								->with('HTMLDescription', $this->getDescription())
-					);
+        return view($this->baseViewPath . $view, $data)
+		->with('HTMLTitle', $this->getTitle())
+		->with('HTMLDescription', $this->getDescription());
     }
 
-	/**
-	 * Minifie les pages en mode en production
-	 * 
-	 * @param view
-	 */
-	public function minifier($view)
-	{
-		if(env('APP_ENV') != 'local' || env('APP_ENV') != 'dev') {
-			return HTMLMin::html(HTMLMin::css($view)); // Compression
-		} else {
-			return $view;
-		}
-	}
-	
     /**
      * Get the slug from the url (url inside website)
      *
