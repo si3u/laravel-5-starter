@@ -1,7 +1,7 @@
 <?php
 
 /**
- * For View (and getActiveKeywords() )
+ * For Views (and getActiveKeywords() )
  * @param ARRAY/STRING $words
  * @return ARRAY
  */
@@ -19,9 +19,9 @@ function getKeywords($words)
 	
 	if(isset($keywords[0])) { $keywords[158000] = $keywords[0]; unset($keywords[0]); } // Cette connerie car sinon l'index 0 s'ajoute à la liste des sélectionnés (dans le select)
 	
-	// Forcer   mv bois   et   bois   obligatoirement selected au chargement
-	$keywords['mv bois'] = 'mv bois';
-	$keywords['bois'] = 'bois';
+	// Forcer des mots clé obligatoirement selected au chargement
+	$keywords['mot_cle_obligatoire'] = 'mot_cle_obligatoire';
+	$keywords['mot'] = 'mot';
 	
 //dd('$words :',$words, 'explode infos(keywords) :',explode(',', infos('keywords')), '$keywords :',$keywords);
 	return $keywords;
