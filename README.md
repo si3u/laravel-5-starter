@@ -14,6 +14,8 @@ Il suffit télécharger le paquet :
 <code>git clone https://github.com/wicod/laravel-5-starter.git</code>
 <!-- OU <code>composer require wicod/laravel-5-starter</code> -->
 
+Et : <code>php artisan package:discover</code>
+
 Créer une base de données pour le projet.
 Ensuite remplir correctement le .env, régénérer la clé <code>php artisan key:generate</code> puis <code>php artisan migrate</code> avec un coup de <code>php artisan db:seed</code> (ou utiliser l'archive contenant la bdd) et de suivre quelques recommendations de <a href="https://github.com/bpocallaghan/laravel-admin-starter" target="_blank">Mr callaghan</a>.
 
@@ -36,11 +38,7 @@ Pour pouvoir utiliser webpack.mix et faire la compression des assets, installer 
 
 ### Paquets présents
 
-        bpocallaghan/alert
-        bpocallaghan/impersonate
-        bpocallaghan/notify
-        bpocallaghan/sluggable
-        bpocallaghan/titan
+        bpocallaghan/[titan, alert, notify, impersonate, sluggable]
         google/recaptcha
         intervention/image
         spatie/laravel-analytics
