@@ -19,9 +19,11 @@
                         <a class="btn btn-labeled btn-primary" href="{{ Request::url().'/invites' }}">
                             <span class="btn-label"><i class="fa fa-fw fa-user-secret"></i></span>Inviter un Administrateur
                         </a>
+			{{-- TODO
                         <a class="btn btn-labeled btn-primary" href="{{ Request::url().'/create' }}">
                             <span class="btn-label"><i class="fa fa-fw fa-user-plus"></i></span>Ajouter un Administrateur
                         </a>
+				--}}
                     </div>
 
                     <table id="tbl-list" data-server="false" class="dt-table table nowrap table-striped table-bordered" cellspacing="0" width="100%">

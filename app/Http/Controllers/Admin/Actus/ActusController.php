@@ -32,7 +32,7 @@ class ActusController extends AdminController
 	 */
 	public function create()
 	{
-		$id = (Actus::get()->last()->id + 1); // pour créer le dossier contenant les images en relation
+		$id = (( ! empty(Actus::get()->last()) ? Actus::get()->last()->id : 0) + 1); // pour pouvoir créer le dossier contenant les images en relation
 
 		return $this->view('actus.create_edit')->withId($id);
 	}
@@ -45,9 +45,9 @@ class ActusController extends AdminController
 	 */
 	public function store(Request $request)
 	{
-	    $this->validate($request, Actus::$rules);//, Actus::$messages);
+	    $this->validate($request, Actus::$rules);
 		
-		Actus::setSummary($request); // Obligatoire ici, ALORS QUE NON dans Article ??!!??
+		Actus::setSummary($request);
 
         $this->createEntry(Actus::class, $request->all());
 
@@ -90,7 +90,6 @@ class ActusController extends AdminController
 		save_resource_url();
 		
 		$this->validate($request, Actus::$rules, Actus::$messages);
-		//Actus::setSummary($request); // pas ici (sur update) pour pouvoir changer...
 		
         $this->updateEntry($actus, $request->all());
 

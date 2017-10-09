@@ -6,6 +6,8 @@ use App\Http\Requests;
 use App\Models\NavigationWebsite;
 use Titan\Controllers\Traits\BreadcrumbWebsite;
 
+use HTMLMin;
+
 class TitanWebsiteController extends TitanController
 {
     use BreadcrumbWebsite;
@@ -42,32 +44,17 @@ class TitanWebsiteController extends TitanController
      */
     protected function view($view, $data = [])
     {
-        return $this->minifier( 
-		view($this->baseViewPath . $this->baseViewSubPath . $view, $data)
+       
+	return view($this->baseViewPath . $this->baseViewSubPath . $view, $data)
 		    ->with('HTMLTitle', $this->getTitle())
 		    ->with('HTMLDescription', $this->getDescription())
 		    ->with('HTMLImage', $this->getImage())
 		    ->with('navigation', $this->generateNavigation())
 		    ->with('breadcrumb', $this->breadcrumbHTML())
 		    ->with('pageTitle', $this->getPageTitle())
-		    ->with('selectedNavigation', $this->selectedNavigation)
-		);
+		    ->with('selectedNavigation', $this->selectedNavigation);
     }
 
-
-	/**
-	 * Minifie les pages en mode en production
-	 * 
-	 * @param view
-	 */
-	public function minifier($view)
-	{
-		if(env('APP_ENV') != 'local' || env('APP_ENV') != 'dev') {
-			return HTMLMin::html(HTMLMin::css($view)); // Compression
-		} else {
-			return $view;
-		}
-	}
 	
     /**
      * Get the html title (check for crud reserve word)

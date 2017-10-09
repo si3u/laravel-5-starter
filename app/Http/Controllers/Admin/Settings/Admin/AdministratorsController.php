@@ -80,6 +80,21 @@ class AdministratorsController extends AdminController
 			->withRoles(Role::getAllLists());
 	}
 
+	/**
+	 * Store a newly created User in storage.
+	 *
+	 * @param Request $request
+	 * @return Response
+	 */
+	public function store(Request $request)
+	{
+	    $this->validate($request, User::$rules);
+// TODO	
+        $this->createEntry(User::class, $request->all());
+
+        return redirect_to_resource();
+	}
+
     /**
      * Show the form for editing the specified faq.
      *

@@ -38,7 +38,6 @@ Route::group(['middleware' => 'https'], function () {
 		Route::get('/faq', 'FAQController@index');
 		Route::post('/faq/question/{faq}/{type?}', 'FAQController@incrementClick');
 
-		//Cachées
 		Route::get('/pricing', 'PricingController@index');
 		Route::get('/changelog', 'PagesController@changelog');
 	});
@@ -57,7 +56,7 @@ Route::group(['middleware' => 'https'], function () {
 		Route::get('login', 'LoginController@showLoginForm')->name('login');
 		Route::post('login', 'LoginController@login');
 
-		Route::group(['middleware' => ['auth']], function () { // AJOUT,, 'auth.admin' comme ça, sur que personne peut...
+		Route::group(['middleware' => ['auth']], function () { // AJOUT, comme ça, sur que personne ne peut...
 			// registration
 			Route::get('register/{token}', 'RegisterController@showRegistrationForm')->name('register');
 			Route::post('register', 'RegisterController@register');

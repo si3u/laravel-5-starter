@@ -1,43 +1,43 @@
-id,title,description,slug,url,icon,help_index_title,help_index_content,help_create_title,help_create_content,help_edit_title,help_edit_content,list_order,is_hidden,parent_id,url_parent_id,roles
-1,Tableau de Bord,Tableau de Bord,/,/admin,dashboard,,,,,,,1,0,0,0,2
-2,Analytics,Google Analytics,analytics,/admin/analytics,line-chart,,,,,,,2,0,0,0,"3,4"
-3,Sommaire,,,/admin/analytics,star-half-o,,,,,,,1,0,2,2,"3,4"
-4,Périphériques,,devices,/admin/analytics/devices,tablet,,,,,,,2,0,2,2,"3,4"
-5,Démographique,,demographics,/admin/analytics/demographics,female,,,,,,,5,0,2,2,"3,4"
-6,Visites and Références,,visits-and-referrals,/admin/analytics/visits-and-referrals,cloud,,,,,,,3,0,2,2,"3,4"
-7,Intérêts,,interests,/admin/analytics/interests,heart,,,,,,,4,0,2,2,"3,4"
-8,Dernières activités,Dernières activités,latest-activity,/admin/latest-activity,history,,,,,,,3,0,0,0,4
-9,Website,,website,/admin/latest-activity/website,home,,,,,,,1,0,8,8,4
-10,Administration,Administration,admin,/admin/latest-activity/admin,lock,,,,,,,2,0,8,8,4
-11,Commentaires,Commentaires,testimonials,/admin/general/testimonials,commenting-o,,,,,How,Please complete the form to edit the selected testimonial,3,0,17,17,4
-12,Locations,,locations,/admin/general/locations,globe,,,,,,,4,0,17,17,4
-13,Pays,Pays,countries,/admin/general/locations/countries,map-marker,,,,,,,4,0,12,12,4
-14,Régions,Régions,provinces,/admin/general/locations/provinces,map-marker,,,,,,,3,0,12,12,4
-15,Villes,,cities,/admin/general/locations/cities,map-marker,,,,,,,2,0,12,12,4
-16,Rues,,suburbs,/admin/general/locations/suburbs,map-marker,,,,,,,1,0,12,12,4
-17,Général,Général Website,general,/admin/general,cubes,,,,,,,5,0,0,0,4
-18,Rapports,,reports,/admin/reports,bar-chart,,,,,,,7,0,0,0,4
-19,Sommaire,,summary,/admin/reports/summary,align-left,,,,,,,1,0,18,18,4
-20,Contact,,contact-us,/admin/reports/contact-us,comments-o,,,,,,,2,0,18,18,4
-21,Paramètres,,settings,/admin/settings,cogs,,,,,,,8,0,0,0,4
-22,Website,,website,/admin/settings/website,unlock-alt,,,,,,,1,0,21,21,4
-23,Administration,,admin,/admin/settings/admin,lock,,,,,,,2,0,21,21,4
-24,Navigation,,navigation,/admin/settings/website/navigation,align-center,,,,,,,1,0,22,22,4
-25,Changelogs,,changelogs,/admin/settings/website/changelogs,file-text-o,,,,,,,2,0,22,22,4
-26,Navigation,,navigation,/admin/settings/admin/navigation,align-center,,,,,,,1,0,23,23,4
-27,Administrateurs,,users,/admin/settings/admin/users,users,,,,,,,2,0,23,23,4
-28,Admin Invités,,invites,/admin/settings/admin/users/invites,,,,,,,,1,1,27,27,4
-29,Profil,,profile,/admin/profile,user,,,,,,,9,1,0,0,4
-30,Ordre de Navigation,Ordre de Navigation,order,/admin/settings/admin/navigation/order,list-ol,,,,,,,1,1,26,26,4
-31,Ordre de Navigation,Ordre de Navigation,order,/admin/settings/website/navigation/order,list-ol,,,,,,,1,1,24,24,4
-32,Bannières,Bannières,banners,/admin/general/banners,image,,,,,,,2,0,17,17,4
-33,Souscription Plans,Souscription Plans,subscription-plans,/admin/settings/website/subscription-plans,money,,,,,,,3,0,22,22,4
-34,Rôles,Rôles,roles,/admin/settings/roles,universal-access,,,,,,,3,0,21,21,4
-35,Fonctionnalités,Fonctionnalités,features,/admin/settings/website/subscription-plans/features,tags,,,,,,,1,0,33,33,4
-36,Réalisations,Réalisations,blog,/admin/blog,newspaper-o,,,,,,,4,0,0,0,4
-37,Articles,Articles,articles,/admin/blog/articles,newspaper-o,,,,,,,1,0,36,36,4
-38,Catégories,Catégories,categories,/admin/blog/categories,cubes,,,,,,,2,0,36,36,4
-39,&Eacute ;tiquettes,Tags,tags,/admin/general/tags,tags,,,,,,,1,0,17,17,4
-40,FAQ,FAQ,faqs,/admin/faqs,question,,,,,,,6,0,0,0,4
-41,FAQ Questions,FAQ Questions,,/admin/faqs,question,,,,,,,2,0,40,40,4
-42,Catégories,Catégories,categories,/admin/faqs/categories,cubes,,,,,,,1,0,40,40,4
+id,title,description,slug,url,icon,help_index_title,help_index_content,help_create_title,help_create_content,help_edit_title,help_edit_content,list_order,is_hidden,parent_id,url_parent_id,roles,
+1,Tableau de Bord,Tableau de Bord,/,/admin,dashboard,,,,,,,1,0,0,0,2,
+2,Analytics,Google Analytics,analytics,/admin/analytics,line-chart,,,,,,,2,0,0,0,"3,4",
+3,Sommaire,,,/admin/analytics,star-half-o,,,,,,,1,0,2,2,"3,4",
+4,Périphériques,,devices,/admin/analytics/devices,tablet,,,,,,,2,0,2,2,"3,4",
+5,Démographique,,demographics,/admin/analytics/demographics,female,,,,,,,5,0,2,2,"3,4",
+6,Visites and Références,,visits-and-referrals,/admin/analytics/visits-and-referrals,cloud,,,,,,,3,0,2,2,"3,4",
+7,Intérêts,,interests,/admin/analytics/interests,heart,,,,,,,4,0,2,2,"3,4",
+8,Dernières activités,Dernières activités,latest-activity,/admin/latest-activity,history,,,,,,,3,0,0,0,4,
+9,Website,,website,/admin/latest-activity/website,home,,,,,,,1,0,8,8,4,
+10,Administration,Administration,admin,/admin/latest-activity/admin,lock,,,,,,,2,0,8,8,4,
+11,Commentaires,Commentaires,testimonials,/admin/general/testimonials,commenting-o,,,,,,,3,0,17,17,4,
+12,Locations,,locations,/admin/general/locations,globe,,,,,,,4,0,17,17,4,
+13,Pays,Pays,countries,/admin/general/locations/countries,map-marker,,,,,,,4,0,12,12,4,
+14,Régions,Régions,provinces,/admin/general/locations/provinces,map-marker,,,,,,,3,0,12,12,4,
+15,Villes,,cities,/admin/general/locations/cities,map-marker,,,,,,,2,0,12,12,4,
+16,Rues,,suburbs,/admin/general/locations/suburbs,map-marker,,,,,,,1,0,12,12,4,
+17,Général,Général Website,general,/admin/general,cubes,,,,,,,5,0,0,0,4,
+18,Rapports,,reports,/admin/reports,bar-chart,,,,,,,7,0,0,0,4,
+19,Sommaire,,summary,/admin/reports/summary,align-left,,,,,,,1,0,18,18,4,
+20,Contact,,contact-us,/admin/reports/contact-us,comments-o,,,,,,,2,0,18,18,4,
+21,Paramètres,,settings,/admin/settings,cogs,,,,,,,8,0,0,0,4,
+22,Website,,website,/admin/settings/website,unlock-alt,,,,,,,1,0,21,21,4,
+23,Administration,,admin,/admin/settings/admin,lock,,,,,,,2,0,21,21,4,
+24,Navigation,,navigation,/admin/settings/website/navigation,align-center,,,,,,,1,0,22,22,4,
+25,Changelogs,,changelogs,/admin/settings/website/changelogs,file-text-o,,,,,,,2,0,22,22,4,
+26,Navigation,,navigation,/admin/settings/admin/navigation,align-center,,,,,,,1,0,23,23,4,
+27,Administrateurs,,users,/admin/settings/admin/users,users,,,,,,,2,0,23,23,4,
+28,Admin Invités,,invites,/admin/settings/admin/users/invites,,,,,,,,1,1,27,27,4,
+29,Profil,,profile,/admin/profile,user,,,,,,,9,1,0,0,4,
+30,Ordre de Navigation,Ordre de Navigation,order,/admin/settings/admin/navigation/order,list-ol,,,,,,,1,1,26,26,4,
+31,Ordre de Navigation,Ordre de Navigation,order,/admin/settings/website/navigation/order,list-ol,,,,,,,1,1,24,24,4,
+32,Bannières,Bannières,banners,/admin/general/banners,image,,,,,,,2,0,17,17,4,
+33,Souscription Plans,Souscription Plans,subscription-plans,/admin/settings/website/subscription-plans,money,,,,,,,3,0,22,22,4,
+34,Rôles,Rôles,roles,/admin/settings/roles,universal-access,,,,,,,3,0,21,21,4,
+35,Fonctionnalités,Fonctionnalités,features,/admin/settings/website/subscription-plans/features,tags,,,,,,,1,0,33,33,4,
+36,Réalisations,Réalisations,blog,/admin/blog,newspaper-o,,,,,,,4,0,0,0,4,
+37,Articles,Articles,articles,/admin/blog/articles,newspaper-o,,,,,,,1,0,36,36,4,
+38,Catégories,Catégories,categories,/admin/blog/categories,cubes,,,,,,,2,0,36,36,4,
+39,&Eacute ,tiquettes,Tags,tags,/admin/general/tags,,,,,,,,1,0,17,17,4
+40,FAQ,FAQ,faqs,/admin/faqs,question,,,,,,,6,0,0,0,4,
+41,FAQ Questions,FAQ Questions,,/admin/faqs,question,,,,,,,2,0,40,40,4,
+42,Catégories,Catégories,categories,/admin/faqs/categories,cubes,,,,,,,1,0,40,40,4,

@@ -34,11 +34,11 @@ class ArticlesController extends AdminController
 	 */
 	public function create()
 	{
-		$id = (Article::get()->last()->id + 1);// pour pouvoir créer le dossier contenant les images en relation
+		$id = (( ! empty(Article::get()->last()) ? Article::get()->last()->id : 0) + 1);// pour pouvoir créer le dossier contenant les images en relation
 
 		return $this->view('blog.create_edit')
 					->withCategories( ArticleCategory::getAllList() )
-					->withId($id);//, compact('categories'));
+					->withId($id);
 	}
 
 	/**
@@ -83,7 +83,7 @@ class ArticlesController extends AdminController
 		
         $menuOthersItems = Article::with('category')->select( 'id', 'title', 'category_id')->where('id', '!=', $article->id)->orderBy('category_id')->get();
 
-		return $this->view('blog.create_edit')//, compact('categories'))
+		return $this->view('blog.create_edit')
 					->withCategories(ArticleCategory::getAllList())
 					->withItem($article)
 					->withMenuOthersItems($menuOthersItems);

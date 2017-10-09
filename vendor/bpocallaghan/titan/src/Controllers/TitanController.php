@@ -5,8 +5,6 @@ namespace Titan\Controllers;
 use App\Http\Controllers\Controller;
 use Request;
 
-use HTMLMin;
-
 class TitanController extends Controller
 {
     protected $baseViewPath = '';
