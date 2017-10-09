@@ -6,7 +6,7 @@ return [
     'author'      => env('APP_AUTHOR', 'Fallback Author'),
     'keywords'    => env('APP_KEYWORDS', 'laravel'),
 
-    //'facebook_id'          => env('FACEBOOK_APP_ID', ''),
+    'facebook_id'          => env('FACEBOOK_APP_ID', ''),
     'recaptcha_public_key' => env('RECAPTCHA_PUBLIC_KEY', ''),
 	'recaptcha_private_key' => env('RECAPTCHA_PRIVATE_KEY', ''),
     'google_map_key'       => env('GOOGLE_MAP_KEY', ''),
@@ -61,7 +61,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://localhost'),
+    'url' => env('APP_URL', 'https://laravel-5-starter.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -202,6 +202,11 @@ return [
 		 * LARAVEL FILE MANAGER - http://unisharp.github.io/laravel-filemanager/installation
 		 */
 		Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+
+	/**
+	* HTMLMin - https://github.com/HTMLMin/Laravel-HTMLMin
+	*/
+	HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
 		
     ],
 
@@ -254,6 +259,11 @@ return [
 
         'Image'     => Intervention\Image\Facades\Image::class,
         'LaravelAnalytics' => Spatie\Analytics\AnalyticsFacade::class,
+
+	/**
+	* HTMLMin - https://github.com/HTMLMin/Laravel-HTMLMin
+	*/
+	'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
 
     ],
 
