@@ -15,7 +15,7 @@ class CreateParametersTable extends Migration
         Schema::create('parameters', function (Blueprint $table) {
             $table->increments('id')->unique()->index();
             $table->char('params', 25)->unique();
-            $table->json('value');//->text('value');
+            $table->text('value');//->json('value');
             $table->softDeletes();
             $table->timestamps();
         });
