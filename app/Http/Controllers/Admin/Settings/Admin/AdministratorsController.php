@@ -76,21 +76,8 @@ class AdministratorsController extends AdminController
 	 */
 	public function create()
 	{
-	/*	$tab = new \stdClass();
-		$tab->id = (User::get()->last()->id + 1);
-		$tab->firstname = '';
-		$tab->lastname = '';
-		$tab->fullname = '';
-		$tab->cellphone = '';
-		$tab->telephone = '';
-		$tab->email = '';
-		$tab->roles = Role::getAllLists();
-		$tab->born_at = '';*/
-		
-//        $roles = Role::getAllLists();
 		return $this->view('settings.admin.users.create_edit')
 			->withRoles(Role::getAllLists());
-					//->withItem($tab);
 	}
 
     /**
