@@ -1,0 +1,28 @@
+{
+    "name": "bpocallaghan/generators",
+    "description": "Custom Laravel 5 File Generators with config and publishable stubs.",
+    "keywords": [
+        "laravel",
+        "generators",
+        "stubs",
+        "config",
+        "commands",
+        "customization"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ben-Piet O'Callaghan",
+            "email": "bpocallaghan@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bpocallaghan\\Generators\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

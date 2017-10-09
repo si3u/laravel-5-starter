@@ -1,0 +1,26 @@
+{
+    "name": "bpocallaghan/titan",
+    "description": "Useful classes you can use for every Laravel project",
+	"keywords": ["laravel", "titan", "traits", "controllers", "models", "helpers"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ben-Piet O'Callaghan",
+            "email": "bpocallaghan@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9"
+    },
+	"autoload": {
+		"psr-4": {
+			"Titan\\": "src/"
+		},
+		"files": [
+            "src/Helpers/helpers.php",
+            "src/Helpers/view_helpers.php",
+            "src/Helpers/form_helpers.php",
+            "src/Helpers/upload_helpers.php"
+		]
+	}
+}
