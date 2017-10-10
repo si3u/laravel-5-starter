@@ -124,6 +124,7 @@ trait LfmHelpers
     private function getFormatedWorkingDir()
     {
         $working_dir = request('working_dir');
+//        $working_dir = 'shares';
 
         if (empty($working_dir)) {
             $default_folder_type = 'share';

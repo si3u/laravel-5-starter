@@ -10,7 +10,7 @@ use Titan\Controllers\TitanAdminController;
 
 use Titan\Controllers\TitanWebsiteController as WebsiteController; // pour navigation Website
 
-//use App\Http\Controllers\Admin\History\HistoryController as History; // Pour Vidage auto des Activités
+//use App\Http\Controllers\Admin\History\HistoryController as History; // Pour Vidage automatique des Activités
 
 class DashboardController extends AdminController
 {
@@ -28,7 +28,7 @@ class DashboardController extends AdminController
 	
 	
 	
-// Fonctionne mais je me demande si c'est necéssaire
+
 	 // Vidage auto des Activités
 //	public function __destruct()
 //	{

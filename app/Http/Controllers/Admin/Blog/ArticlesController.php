@@ -53,8 +53,6 @@ class ArticlesController extends AdminController
 		
 		$request->merge( ['keywords' => implode(',', getActiveKeywords($request->keywords))] ); // keywords[] to string
 		
-		//Article::setSummary($request); // Fonctionne sans ça ici, MAIS PAS dans les Actus ??!!??
-
         $this->createEntry(Article::class, $request->all());
 
         return redirect_to_resource();
@@ -81,7 +79,9 @@ class ArticlesController extends AdminController
 	{
 		save_resource_url();
 		
-        $menuOthersItems = Article::with('category')->select( 'id', 'title', 'category_id')->where('id', '!=', $article->id)->orderBy('category_id')->get();
+        $menuOthersItems = Article::with('category')->select( 'id', 'title', 'category_id')
+			->where('id', '!=', $article->id)
+			->orderBy('category_id')->get();
 
 		return $this->view('blog.create_edit')
 					->withCategories(ArticleCategory::getAllList())

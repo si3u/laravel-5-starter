@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Requests;
-use App\Models\Actus;
 //use Illuminate\Support\Facades\File;
 
-class ActusController extends ApiController
+class CreateDirectoryController extends ApiController
 {
 	
 	/**
@@ -14,9 +13,9 @@ class ActusController extends ApiController
 	 * @param STRING $dir passée par Ajax Api
 	 * @return notify
 	 */
-	public function createDirectory($dir = "0-inconnu")
+	public function create($type, $dir = "0-unknow")
 	{
-		$path = public_path().'/photos/shares/Actus/';
+		$path = public_path().'/photos/shares/'.ucfirst($type).'/';
 		
 		if( ! is_dir($path . $dir) )
 		{

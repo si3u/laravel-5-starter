@@ -21,7 +21,7 @@ class ParametersController extends AdminController
 {
 	
 	/**
-	 * Tailles Minimales des images
+	 * Mininmu sizes
 	 * @var INT 
 	 */
 	private $sizeLogo	  = 300;
@@ -45,14 +45,14 @@ class ParametersController extends AdminController
 					->withInfos		 ($this->getParams('infos'))
 					->withSocials	 ($this->getParams('socials'))
 
-					->withSizes([$this->sizeLogo, $this->sizeLogoMini, $this->sizeFavicon]); // envoie la variable $sizes à la vue !!
+					->withSizes([$this->sizeLogo, $this->sizeLogoMini, $this->sizeFavicon]);
 			
 	}
 	
 	/**
-	 * 
+	 * Get Parameters
 	 * @param STRING $param (keywords,...)
-	 * @return OBJECT value param
+	 * @return OBJECT param
 	 */
 	public function getParams($param)
 	{
@@ -61,65 +61,11 @@ class ParametersController extends AdminController
 		return $params;
 	}
 
-//-// UPDATE 
 	
-    /**
-     * Update the specified faq in storage.
-     * @param User    $user
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-    
-    public function update($type, User $user, Request $request)
-    {		
-		$this->validate($request, [$type => Parameters::$rules[$type]]);
-		
-		// Autorisation
-        if ($user->id > 2) {
-            notify()->warning('Oops', 'Vous ne pouvez pas éditer ces paramètres.');
-            return redirect_to_resource();
-        }
-		
-		$this->type = $type;
-	
-		switch ($type)
-		{
-			case 'keywords':	$this->setBasic( strtolower(implode(',', $request->keywords)) ); break;	
-			case 'description': $this->setBasic($request->description); break;
-			case 'horaires':	$this->setHoraires($request); break;
-			case 'logo':		$this->setLogo($request); break;
-			case 'favicon':		$this->setFavicon($request); break;
-			case 'infos':		$this->setJson($request); break;
-			case 'socials':		$this->setJson($request); break;
-		}
-		
-		if($this->result) {
-			notify()->success('Succès', ucfirst($this->type) . ' mis à jour.');
-		} else {
-			notify()->error('Oops', 'Un problème est survenu à la mise à jour<br> de ' . ucfirst($this->type));
-		}
-		
-        //event(new Parameters($row));
-		
-        return redirect_to_resource();
-    } */
 	/**
-	 * Notifications after update parameter
-	 * @param OBJECT $res
+     * Update the specified faq in storage.
 	 * @param STRING $type
-	 
-	private function notifications()
-	{
-		if($this->result) {
-			notify()->success('Succès', ucfirst($this->type) . ' mis à jour.');
-		} else {
-			notify()->error('Oops', 'Un problème est survenu à la mise à jour<br> de ' . ucfirst($this->type));
-		}
-
-	}*/
-	
-	/**
-     * Update the specified faq in storage.
-     * @param User    $user
+     * @param Parameters $parameters
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
@@ -196,7 +142,7 @@ class ParametersController extends AdminController
 		}
     }
 	
-	// Télécharge les favicons
+	// Upload favicons
 	public function saveFavicon($name, $imageTmp)
 	{
 		$path = upload_path_images().'favicons/';
@@ -212,7 +158,7 @@ class ParametersController extends AdminController
 		notify()->success('Succès', 'Le Favicon à été modifié.');
 	}
 	
-	// Controle les tailles minimales des images fournis
+	// Controls Sizes
 	public function controlSizePictures($size, $type)
 	{
 //		if(strpos($type, 'logo') && $size < $this->sizeLogo) { return false; }

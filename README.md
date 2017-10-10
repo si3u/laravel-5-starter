@@ -1,9 +1,9 @@
 # wicod/laravel-5-starter
-#### v0.0.1
+#### v0.0.2
 
 Laravel 5 starter en Français sur la base de <a href="https://github.com/bpocallaghan/laravel-admin-starter" target="_blank">bpo-callaghan/laravel-admin-starter</a>.
 
-Version Laravel <b>5.5.9</b>
+Version Laravel <b>5.5.14</b>
 
 Tout prêt, tout y est, jusqu'au système de corbeille (ajouté) en passant par sa classe Notify() revue pour afficher plusieurs messages à la suite et d'autres petites améliorations.
 
@@ -11,7 +11,7 @@ Tout prêt, tout y est, jusqu'au système de corbeille (ajouté) en passant par 
 
 Il suffit télécharger le paquet :
 
-<code>git clone https://github.com/wicod/laravel-5-starter.git</code>
+<code>git clone https://github.com/wicod/laravel-5-starter.git nouveau-projet</code>
 <!-- OU <code>composer require wicod/laravel-5-starter</code> -->
 
 Et : <code>php artisan package:discover</code>
@@ -21,10 +21,11 @@ Ensuite remplir correctement le .env, régénérer la clé <code>php artisan key
 
 ##### Connexion Admininstration : admin@mail.com &nbsp; &nbsp; 12345678
 
-Pour de meilleurs résultats, l'utilisation d'hôte virtuel est recommendé.
-Penser peut-être à un <code>sudo chmod -R 777 path/to/racine</code>.
+Pour de meilleurs résultats, l'utilisation d'hôte virtuel est recommendé. Pour ça c'est par <a href="https://memo.wicod.fr/mettre-en-place-virtual-host-simplement/" target="_blank">ici</a>.
 
-Penser aux <code>php artisan package:discover</code>, <code>php artisan config:clear</code> et <code>php artisan config:cache</code>. Vu qu'il y a utilisation d'Api, <code>php artisan route:cache</code> ne fonctionne pas.
+Penser peut-être à un <code>sudo chmod -R 777 sur/la/racine</code>.
+
+Penser aux <code>php artisan config:clear</code> et <code>php artisan config:cache</code>. En raison de l'utilisation d'Api, <code>php artisan route:cache</code> ne fonctionne pas.
 
 ### Notes
 
@@ -44,7 +45,7 @@ Pour pouvoir utiliser webpack.mix et faire la compression des assets, installer 
         spatie/laravel-analytics
         unisharp/laravel-filemanager
         yajra/laravel-datatables-oracle
-	htmlmin/htmlmin
+	    htmlmin/htmlmin
 
         bpocallaghan/generators
         barryvdh/laravel-debugbar
@@ -57,6 +58,4 @@ Pour pouvoir utiliser webpack.mix et faire la compression des assets, installer 
 <li>Thank you <a href="https://github.com/JeffreyWay" target="_blank">Jeffrey Way</a> for the awesome resources at <a href="https://laracasts.com/" target="_blank">Laracasts</a>.</li>
 <li>Thanks <a href="https://github.com/bpocallaghan/laravel-admin-starter" target="_blank">BPO Callaghan</a>.</li>
 </ul>
-
-
 

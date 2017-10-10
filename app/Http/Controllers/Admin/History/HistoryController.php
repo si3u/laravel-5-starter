@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\History;
 
 use App\Http\Requests;
 use App\Models\LogActivity;
-use App\Models\LogLogin; // AJOUT pour vider ça en meme temps que les activités
+use App\Models\LogLogin; // AJOUT pour vider les Logins en meme temps que les activités
 use App\Models\LogAdminActivity;
 use Titan\Controllers\TitanAdminController;
 
@@ -12,6 +12,8 @@ class HistoryController extends TitanAdminController
 {
     public function website()
     {
+		save_resource_url();
+		
         $actions = LogActivity::getLatest();
 
         return $this->view('history.website', compact('actions'));
@@ -19,6 +21,8 @@ class HistoryController extends TitanAdminController
 
     public function admin()
     {
+		save_resource_url();
+		
         $activities = LogAdminActivity::getLatest();
 
         return $this->view('history.admin', compact('activities'));
@@ -41,17 +45,7 @@ class HistoryController extends TitanAdminController
 			$this->modelLog = new LogAdminActivity();
 			$this->deleteLog($type);
 			
-			/*$countLog = LogAdminActivity::count();
-			
-			if($countLog > $offset) {
-				// on en laisse 10 au minimum
-				$del = LogAdminActivity::offset($offset)->take($countLog - $offset)->delete();
-			//	LogLogin::offset($offset)->take($countLogAdmin - $offset)->delete(); // logs Login
-			}
-			if($del){ notify()->info('Info', 'Activités Administration supprimées.' , 'trash-o rotateIn animated'); }
-			else { notify()->error('Erreur', 'Une erreur est survenue<br> à la suppression des activités.'); }
-dd($del);*/
-			if($directAccess) { return $this->admin(); }
+			if($directAccess) {	return redirect_to_resource(); }
 		}
 		elseif($type == 'website')
 		{
@@ -60,24 +54,14 @@ dd($del);*/
 			$this->modelLog = new LogLogin();
 			$this->deleteLog('login');
 			
-			/*$countLog = LogActivity::count();
-			
-			if($countLog > $offset) {
-				// on en laisse 10 au minimum
-				$del = LogActivity::offset($offset)->take($countLog - $offset)->delete();
-
-			}
-			if($del){ notify()->info('Info', 'Activités Website supprimées.' , 'trash-o rotateIn animated'); }
-			else { notify()->error('Erreur', 'Une erreur est survenue<br> à la suppression des activités.'); }
-dd($del);*/
-			if($directAccess) { return $this->website(); }
+			if($directAccess) { return redirect_to_resource(); }
 		}
 	}
 	
 	/**
 	 * SUPPRESSION des activités (call by destroy() )
 	 * @param STR $type
-	 * @param INT $offset
+	 * @param INT $offset si on veut en laisser
 	 */
 	public function deleteLog($type, $offset = 0)
 	{
@@ -87,7 +71,6 @@ dd($del);*/
 		$countLog = $this->modelLog->count();
 
 		if($countLog > $offset) {
-			// on en laisse 10 au minimum
 			$del = $this->modelLog
 				->orderBy('created_at', 'DESC')
 				->offset($offset)

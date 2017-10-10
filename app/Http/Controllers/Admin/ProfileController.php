@@ -55,7 +55,7 @@ class ProfileController extends AdminController
 			'email',
             'password'
         ];
-		// Si mot de passe vide, on prend celui existant
+		// if empty password
         if ( $request->input('password') == null ) {
 			unset($tab_to_update[8]);
 		} else {

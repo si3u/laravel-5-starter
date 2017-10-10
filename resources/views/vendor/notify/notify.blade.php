@@ -1,72 +1,32 @@
+
 @section('scripts')
 	@parent
 	<script type="text/javascript" charset="utf-8">
         $(function () {
 			
-			
-            @if ( session('notify.title') )
+            @if ( session('notify') )
 
-			<?php /*
-				*/ ?>
-				@if ( is_array(session('notify.title')) )
+				@foreach(session('notify') as $k => $v)
 
-					@foreach(session('notify.title') as $k => $v)
-/* PLUS BESOIN
-//						addNotify(
-//							"{{ session("notify.title.$k") }}",
-//							"{!! session("notify.content.$k") !!}",
-//							"{{ session("notify.level.$k") }}",
-//							"fa fa-{{ session("notify.icon.$k") }}",
-//							"fa fa-{{ session("notify.iconSmall.$k") }}",
-//							{{ session("notify.timeout.$k") }}
-//						);*/
-						$.notify({
-							title: "{!! session("notify.title.$k") !!}",
-							content: "{!! session("notify.content.$k") !!}",
-							level: "{{ session("notify.level.$k") }}",
-
-							@if (session("notify.icon.$k"))
-								icon: "fa fa-{{ session("notify.icon.$k") }}",
-							@endif
-
-							@if (session("notify.iconSmall.$k"))
-								iconSmall: "fa fa-{{ session("notify.iconSmall.$k") }}",
-							@endif
-
-							@if (session("notify.timeout.$k"))
-								timeout: {{ session("notify.timeout.$k") }},
-							@endif
-						});
-
-					@endforeach
-			<?php /*
-				*/ ?>
-				@else
-					
 					$.notify({
-						title: "{!! session('notify.title') !!}",
-						content: "{!! session('notify.content') !!}",
-						level: "{{ session('notify.level') }}",
+						title: "{!! $v["title"] !!}",
+						content: "{!! $v["content"] !!}",
+						level: "{{ $v["level"] }}",
 
-						@if (session('notify.icon'))
-							icon: "fa fa-{{ session('notify.icon') }}",
+						@if ($v["icon"])
+							icon: "fa fa-{{ $v["icon"] }}",
 						@endif
 
-						@if (session('notify.iconSmall'))
-							iconSmall: "fa fa-{{ session('notify.iconSmall') }}",
+						@if ($v["iconSmall"])
+							iconSmall: "fa fa-{{ $v["iconSmall"] }}",
 						@endif
 
-						@if (session('notify.timeout'))
-							timeout: {{ session('notify.timeout') }},
+						@if ($v["timeout"])
+							timeout: {{ $v["timeout"] }},
 						@endif
 					});
-				
-				@endif
-				
-				{{ session()->forget('notify') }}
-
-            @endif
-			
+				@endforeach
+			@endif
         });
 	</script>
 @endsection

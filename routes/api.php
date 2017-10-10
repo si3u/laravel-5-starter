@@ -58,12 +58,7 @@ Route::group(['namespace' => 'Api'], function () {
        
     });
 	
-    // ACTUS
-    Route::group(['prefix' => 'actus'], function () {
-        Route::get('/createDirectory/{dir}', 'ActusController@createDirectory');
-	});
-    // REALISATIONS
-    Route::group(['prefix' => 'realisations'], function () {
-        Route::get('/createDirectory/{dir}', 'RealisationsController@createDirectory');
-	});
+    // Create Directory for Actus & Articles
+    Route::get('/createDirectory/{type}/{dir}', 'CreateDirectoryController@create');
+	
 });

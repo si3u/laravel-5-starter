@@ -103,7 +103,7 @@ class Notify
         $content,
         $icon,
         $iconSmall,
-        $timeout = 5000
+        $timeout = 8000
     ) {
         $this->session->push('notify.level', $level);
         $this->session->push('notify.title', $title);

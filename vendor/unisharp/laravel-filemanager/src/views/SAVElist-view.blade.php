@@ -9,37 +9,30 @@
   </thead>
   <tbody>
     @foreach($items as $item)
-	
     <tr>
       <td>
         <i class="fa {{ $item->icon }}"></i>
         <a class="{{ $item->is_file ? 'file' : 'folder'}}-item clickable" data-id="{{ $item->is_file ? $item->url : $item->path }}">
-          {{ str_limit($item->name, $limit = 34, $end = '...') }}
+          {{ str_limit($item->name, $limit = 20, $end = '...') }}
         </a>
-		
-	{{-- Ajout pour choper la miniature --}}
-        @if($item->is_file)
-        &nbsp;[ <a class="file-item clickable" data-id="{{ $item->thumb }}">miniature</a> <small><em>{{ config('lfm.thumb_img_width').'x'.config('lfm.thumb_img_height') }}px</em></small> ]
-        @endif
-		
       </td>
       <td>{{ $item->size }}</td>
       <td>{{ $item->type }}</td>
       <td>{{ $item->time }}</td>
       <td>
-      @if($item->is_file)
-        <a href="javascript:trash('{{ $item->name }}')" title="Supprimer">
+        @if($item->is_file)
+        <a href="javascript:trash('{{ $item->name }}')">
           <i class="fa fa-trash fa-fw"></i>
         </a>
         @if($item->thumb)
-        <a href="javascript:cropImage('{{ $item->name }}')" title="Découper">
+        <a href="javascript:cropImage('{{ $item->name }}')">
           <i class="fa fa-crop fa-fw"></i>
         </a>
-        <a href="javascript:resizeImage('{{ $item->name }}')" title="Redimensionner">
+        <a href="javascript:resizeImage('{{ $item->name }}')">
           <i class="fa fa-arrows fa-fw"></i>
         </a>
         @endif
-      @endif
+        @endif
       </td>
     </tr>
     @endforeach
@@ -67,11 +60,6 @@
                 <a class="{{ $item->is_file ? 'file' : 'folder'}}-item clickable" data-id="{{ $item->is_file ? $item->url : $item->path }}">
                   {{ str_limit($item->name, $limit = 20, $end = '...') }}
                 </a>
-				  
-			{{-- Ajout pour choper la miniature --}}
-				@if($item->is_file)
-				&nbsp;[ <a class="file-item clickable" data-id="{{ $item->thumb }}">miniature</a> ]
-				@endif
                 &nbsp;&nbsp;
                 {{-- <a href="javascript:rename('{{ $item->name }}')">
                   <i class="fa fa-edit"></i>

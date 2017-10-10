@@ -45,9 +45,7 @@ class AdministratorsController extends AdminController
      */
     public function postInvite(Request $request)
     {
-        $this->validate($request, [
-            'email' => 'required|email|unique:users|unique:user_invites'
-        ]);
+        $this->validate($request, [ 'email' => 'required|email|unique:users|unique:user_invites' ]);
 
         // create row
         $row = UserInvite::create($request->only('token', 'email', 'invited_by'));
@@ -123,7 +121,7 @@ class AdministratorsController extends AdminController
             'roles'     => 'required|array',
         ]);
 
-        if ($user->id > 2) {
+        if ($user->id > 1) {
             notify()->warning('Oops', 'Vous ne pouvez pas éditer cet utilisateur.');
 
             return redirect_to_resource();
@@ -150,7 +148,7 @@ class AdministratorsController extends AdminController
      */
     public function destroy(User $user, Request $request)
     {
-        if ($user->id > 2) {
+        if ($user->id > 1) {
             notify()->warning('Oops', 'Vous ne pouvez pas supprimer cet utilisateur.');
         }
         else {

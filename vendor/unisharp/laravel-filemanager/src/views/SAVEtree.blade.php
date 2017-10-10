@@ -5,20 +5,15 @@
         <i class="fa fa-folder"></i> {{ $root_folder->name }}
       </a>
     </li>
-	<br>
-	
     @foreach($root_folder->children as $directory)
       <li style="margin-left: 10px;">
         <a class="clickable folder-item" data-id="{{ $directory->path }}">
           <i class="fa fa-folder"></i> {{ $directory->name }}
         </a>
       </li>
-	  <br>
     @endforeach
-	
     @if($root_folder->has_next)
       <hr>
     @endif
-	
   @endforeach
 </ul>

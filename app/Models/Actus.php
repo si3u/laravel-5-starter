@@ -28,8 +28,6 @@ class Actus extends TitanCMSModel
     ];
 
 	
-	
-	// Création SLUG
 	/**
 	 * Generate slug with title
 	 * @return type
@@ -54,6 +52,10 @@ class Actus extends TitanCMSModel
         return substr(strip_tags($this->attributes['content']), 0, 200);
     }
 	
+	/**
+	 * Construit la description automatiquement avec le contenu si elle est vide
+	 * @param Request $request
+	 */
 	public static function setSummary($request)
 	{
 		if ( empty($request->summary) ) {

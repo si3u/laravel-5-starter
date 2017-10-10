@@ -23,7 +23,7 @@
 		{
 			if(dir) {
 				var xhr = $.ajax( { 
-					url: '/api/{{ $type }}/createDirectory/{{ isset($item) ? $item->id : $id }}_'+dir,
+					url: '/api/createDirectory/{{$type}}/{{ isset($item) ? $item->id : $id }}_'+dir,
 					success: function(res){
 						notify('Succès', res);
 						$('#btn-create-new-dir').fadeOut(400); /* On cache le bouton de création */

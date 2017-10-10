@@ -32,8 +32,6 @@ class Article extends TitanCMSModel
     ];
 
 	
-	
-	// AJOUT pour création SLUG
 	/**
 	 * Generate slug with title
 	 * @return type
@@ -43,7 +41,6 @@ class Article extends TitanCMSModel
         return SlugOptions::create()->generateSlugFrom('title');
     }
 
-	
 	
 	
     /**
@@ -60,13 +57,6 @@ class Article extends TitanCMSModel
         return substr(strip_tags($this->attributes['content']), 0, 200);
     }
 	
-//	public static function setSummary($request)
-//	{
-//		if ( empty($request->summary) ) {
-//			$limit = ( strlen(strip_tags($request->input('content'))) > 200 ) ? 200 : strlen(strip_tags($request->input('content')));
-//			$request->merge(['summary' => substr(strip_tags($request->input('content')), 0, 200)]);
-//		}
-//	}
 
     /**
      * Get the createdBy
