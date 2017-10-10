@@ -103,11 +103,8 @@ class Notify
         $content,
         $icon,
         $iconSmall,
-        $timeout = 8000
+        $timeout = 5000
     ) {
-//        $this->session->flash('notify.level', $level);
-//        $this->session->flash('notify.title', $title);
-//        $this->session->flash('notify.content', $content);
         $this->session->push('notify.level', $level);
         $this->session->push('notify.title', $title);
         $this->session->push('notify.content', $content);
@@ -116,7 +113,6 @@ class Notify
         if ((is_bool($icon) && $icon == true) || strlen($icon) > 1) {
             $icon = is_string($icon) ? $icon : notify_icon($level);
 
-//            $this->session->flash('notify.icon', $icon . ' animated');
             $this->session->push('notify.icon', $icon . ' animated');
         }
 
@@ -124,12 +120,10 @@ class Notify
         if ((is_bool($iconSmall) && $iconSmall == true) || strlen($iconSmall) > 1) {
             $iconSmall = is_string($iconSmall) ? $iconSmall : notify_icon_small($level);
 
-//            $this->session->flash('notify.iconSmall', $iconSmall . ' animated');
             $this->session->push('notify.iconSmall', $iconSmall . ' animated');
         }
 
         if ($timeout > 0) {
-//            $this->session->flash('notify.timeout', $timeout);
             $this->session->push('notify.timeout', $timeout);
         }
     }

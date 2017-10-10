@@ -1,14 +1,15 @@
-<?php
+<?php namespace Unisharp\Laravelfilemanager\controllers;
 
-namespace Unisharp\Laravelfilemanager\controllers;
+use Illuminate\Support\Facades\File;
 
 /**
- * Class ItemsController.
+ * Class ItemsController
+ * @package Unisharp\Laravelfilemanager\controllers
  */
 class ItemsController extends LfmController
 {
     /**
-     * Get the images to load for a selected folder.
+     * Get the images to load for a selected folder
      *
      * @return mixed
      */
@@ -21,21 +22,22 @@ class ItemsController extends LfmController
         $directories = parent::sortFilesAndDirectories(parent::getDirectories($path), $sort_type);
 
         return [
-            'html' => (string) view($this->getView())->with([
+            'html' => (string)view($this->getView())->with([
                 'files'       => $files,
                 'directories' => $directories,
-                'items'       => array_merge($directories, $files),
+                'items'       => array_merge($directories, $files)
             ]),
-            'working_dir' => parent::getInternalPath($path),
+            'working_dir' => parent::getInternalPath($path)
         ];
     }
+
 
     private function getView()
     {
         $view_type = 'grid';
         $show_list = request('show_list');
 
-        if ($show_list === '1') {
+        if ($show_list === "1") {
             $view_type = 'list';
         } elseif (is_null($show_list)) {
             $type_key = parent::currentLfmType();

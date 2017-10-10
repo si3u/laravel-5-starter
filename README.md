@@ -58,6 +58,5 @@ Pour pouvoir utiliser webpack.mix et faire la compression des assets, installer 
 <li>Thanks <a href="https://github.com/bpocallaghan/laravel-admin-starter" target="_blank">BPO Callaghan</a>.</li>
 </ul>
 
-<a hraf="https://www.wicod.fr" target="_blank">WICOD.fr</a>
 
 

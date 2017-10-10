@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d6549ac352346bbcb4d4b631fc10dddb",
-    "content-hash": "a42bb7b5a000af43d707e623fc669ae6",
+    "hash": "62fe9196584b099ff49255edcebab8cb",
+    "content-hash": "96c8ab18d9050f120edde89e1262203b",
     "packages": [
         {
             "name": "bpocallaghan/alert",
-            "version": "1.1.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bpocallaghan/alert.git",
-                "reference": "1366af96df22c57828bf579364955597eb87e143"
+                "reference": "a874fa41f23804f734dc3b78cda77bdea0d27998"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bpocallaghan/alert/zipball/1366af96df22c57828bf579364955597eb87e143",
-                "reference": "1366af96df22c57828bf579364955597eb87e143",
+                "url": "https://api.github.com/repos/bpocallaghan/alert/zipball/a874fa41f23804f734dc3b78cda77bdea0d27998",
+                "reference": "a874fa41f23804f734dc3b78cda77bdea0d27998",
                 "shasum": ""
             },
             "require": {
@@ -61,7 +61,7 @@
                 "message",
                 "notification"
             ],
-            "time": "2017-10-08 08:43:02"
+            "time": "2017-09-19 12:22:48"
         },
         {
             "name": "bpocallaghan/impersonate",
@@ -1164,16 +1164,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.9",
+            "version": "v5.5.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "a0fdfd2c90318c107b6a8d69189ec9a6607379e3"
+                "reference": "26c700eb79e5bb55b59df2c495c9c71f16f43302"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/a0fdfd2c90318c107b6a8d69189ec9a6607379e3",
-                "reference": "a0fdfd2c90318c107b6a8d69189ec9a6607379e3",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/26c700eb79e5bb55b59df2c495c9c71f16f43302",
+                "reference": "26c700eb79e5bb55b59df2c495c9c71f16f43302",
                 "shasum": ""
             },
             "require": {
@@ -1292,7 +1292,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-09-20 13:45:36"
+            "time": "2017-10-03 17:41:03"
         },
         {
             "name": "laravel/tinker",
@@ -3212,20 +3212,19 @@
         },
         {
             "name": "unisharp/laravel-filemanager",
-            "version": "v1.8.1",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/UniSharp/laravel-filemanager.git",
-                "reference": "f5ec3b4e6398d196000aa320c44800e6d8b6fc00"
+                "reference": "63a788e5f62d3e9c8b8be8fd5bac9c9d59325e29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UniSharp/laravel-filemanager/zipball/f5ec3b4e6398d196000aa320c44800e6d8b6fc00",
-                "reference": "f5ec3b4e6398d196000aa320c44800e6d8b6fc00",
+                "url": "https://api.github.com/repos/UniSharp/laravel-filemanager/zipball/63a788e5f62d3e9c8b8be8fd5bac9c9d59325e29",
+                "reference": "63a788e5f62d3e9c8b8be8fd5bac9c9d59325e29",
                 "shasum": ""
             },
             "require": {
-                "ext-exif": "*",
                 "illuminate/support": ">=4.2.0",
                 "intervention/image": "2.*",
                 "php": ">=5.4.0"
@@ -3243,17 +3242,6 @@
                 "bin/debug"
             ],
             "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Unisharp\\Laravelfilemanager\\LaravelFilemanagerServiceProvider",
-                        "Intervention\\Image\\ImageServiceProvider"
-                    ],
-                    "aliases": {
-                        "Image": "Intervention\\Image\\Facades\\Image"
-                    }
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Unisharp\\Laravelfilemanager\\": "src/"
@@ -3284,7 +3272,7 @@
                 "tinymce",
                 "upload"
             ],
-            "time": "2017-07-13 06:55:50"
+            "time": "2017-06-11 15:15:20"
         },
         {
             "name": "vlucas/phpdotenv",

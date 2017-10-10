@@ -1674,84 +1674,6 @@
         ]
     },
     {
-        "name": "unisharp/laravel-filemanager",
-        "version": "v1.8.1",
-        "version_normalized": "1.8.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/UniSharp/laravel-filemanager.git",
-            "reference": "f5ec3b4e6398d196000aa320c44800e6d8b6fc00"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/UniSharp/laravel-filemanager/zipball/f5ec3b4e6398d196000aa320c44800e6d8b6fc00",
-            "reference": "f5ec3b4e6398d196000aa320c44800e6d8b6fc00",
-            "shasum": ""
-        },
-        "require": {
-            "ext-exif": "*",
-            "illuminate/support": ">=4.2.0",
-            "intervention/image": "2.*",
-            "php": ">=5.4.0"
-        },
-        "require-dev": {
-            "orchestra/testbench": "~3.0",
-            "phpspec/phpspec": "~2.1",
-            "phpunit/phpunit": "~4.8"
-        },
-        "suggest": {
-            "ext-gd": "to use GD library based image processing.",
-            "ext-imagick": "to use Imagick based image processing."
-        },
-        "time": "2017-07-13 06:55:50",
-        "bin": [
-            "bin/debug"
-        ],
-        "type": "library",
-        "extra": {
-            "laravel": {
-                "providers": [
-                    "Unisharp\\Laravelfilemanager\\LaravelFilemanagerServiceProvider",
-                    "Intervention\\Image\\ImageServiceProvider"
-                ],
-                "aliases": {
-                    "Image": "Intervention\\Image\\Facades\\Image"
-                }
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Unisharp\\Laravelfilemanager\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Trevor Sawler",
-                "email": "trevor.sawler@gmail.com"
-            },
-            {
-                "name": "UniSharp Ltd.",
-                "email": "unisharp-service@unisharp.com"
-            }
-        ],
-        "description": "A file upload/editor intended for use with Laravel 5 and CKEditor / TinyMCE",
-        "keywords": [
-            "CKEditor",
-            "file",
-            "filemanager",
-            "image",
-            "laravel",
-            "manager",
-            "tinymce",
-            "upload"
-        ]
-    },
-    {
         "name": "maximebf/debugbar",
         "version": "v1.14.0",
         "version_normalized": "1.14.0.0",
@@ -1812,140 +1734,6 @@
         "keywords": [
             "debug",
             "debugbar"
-        ]
-    },
-    {
-        "name": "laravel/framework",
-        "version": "v5.5.9",
-        "version_normalized": "5.5.9.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/laravel/framework.git",
-            "reference": "a0fdfd2c90318c107b6a8d69189ec9a6607379e3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/a0fdfd2c90318c107b6a8d69189ec9a6607379e3",
-            "reference": "a0fdfd2c90318c107b6a8d69189ec9a6607379e3",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/inflector": "~1.1",
-            "erusev/parsedown": "~1.6",
-            "ext-mbstring": "*",
-            "ext-openssl": "*",
-            "league/flysystem": "~1.0",
-            "monolog/monolog": "~1.12",
-            "mtdowling/cron-expression": "~1.0",
-            "nesbot/carbon": "~1.20",
-            "php": ">=7.0",
-            "psr/container": "~1.0",
-            "psr/simple-cache": "^1.0",
-            "ramsey/uuid": "~3.0",
-            "swiftmailer/swiftmailer": "~6.0",
-            "symfony/console": "~3.3",
-            "symfony/debug": "~3.3",
-            "symfony/finder": "~3.3",
-            "symfony/http-foundation": "~3.3",
-            "symfony/http-kernel": "~3.3",
-            "symfony/process": "~3.3",
-            "symfony/routing": "~3.3",
-            "symfony/var-dumper": "~3.3",
-            "tijsverkoyen/css-to-inline-styles": "~2.2",
-            "vlucas/phpdotenv": "~2.2"
-        },
-        "replace": {
-            "illuminate/auth": "self.version",
-            "illuminate/broadcasting": "self.version",
-            "illuminate/bus": "self.version",
-            "illuminate/cache": "self.version",
-            "illuminate/config": "self.version",
-            "illuminate/console": "self.version",
-            "illuminate/container": "self.version",
-            "illuminate/contracts": "self.version",
-            "illuminate/cookie": "self.version",
-            "illuminate/database": "self.version",
-            "illuminate/encryption": "self.version",
-            "illuminate/events": "self.version",
-            "illuminate/exception": "self.version",
-            "illuminate/filesystem": "self.version",
-            "illuminate/hashing": "self.version",
-            "illuminate/http": "self.version",
-            "illuminate/log": "self.version",
-            "illuminate/mail": "self.version",
-            "illuminate/notifications": "self.version",
-            "illuminate/pagination": "self.version",
-            "illuminate/pipeline": "self.version",
-            "illuminate/queue": "self.version",
-            "illuminate/redis": "self.version",
-            "illuminate/routing": "self.version",
-            "illuminate/session": "self.version",
-            "illuminate/support": "self.version",
-            "illuminate/translation": "self.version",
-            "illuminate/validation": "self.version",
-            "illuminate/view": "self.version",
-            "tightenco/collect": "self.version"
-        },
-        "require-dev": {
-            "aws/aws-sdk-php": "~3.0",
-            "doctrine/dbal": "~2.5",
-            "filp/whoops": "^2.1.4",
-            "mockery/mockery": "~1.0",
-            "orchestra/testbench-core": "3.5.*",
-            "pda/pheanstalk": "~3.0",
-            "phpunit/phpunit": "~6.0",
-            "predis/predis": "^1.1.1",
-            "symfony/css-selector": "~3.3",
-            "symfony/dom-crawler": "~3.3"
-        },
-        "suggest": {
-            "aws/aws-sdk-php": "Required to use the SQS queue driver and SES mail driver (~3.0).",
-            "doctrine/dbal": "Required to rename columns and drop SQLite columns (~2.5).",
-            "fzaninotto/faker": "Required to use the eloquent factory builder (~1.4).",
-            "guzzlehttp/guzzle": "Required to use the Mailgun and Mandrill mail drivers and the ping methods on schedules (~6.0).",
-            "laravel/tinker": "Required to use the tinker console command (~1.0).",
-            "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (~1.0).",
-            "league/flysystem-rackspace": "Required to use the Flysystem Rackspace driver (~1.0).",
-            "nexmo/client": "Required to use the Nexmo transport (~1.0).",
-            "pda/pheanstalk": "Required to use the beanstalk queue driver (~3.0).",
-            "predis/predis": "Required to use the redis cache and queue drivers (~1.0).",
-            "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~2.0).",
-            "symfony/css-selector": "Required to use some of the crawler integration testing tools (~3.3).",
-            "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (~3.3).",
-            "symfony/psr-http-message-bridge": "Required to psr7 bridging features (~1.0)."
-        },
-        "time": "2017-09-20 13:45:36",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.5-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "src/Illuminate/Foundation/helpers.php",
-                "src/Illuminate/Support/helpers.php"
-            ],
-            "psr-4": {
-                "Illuminate\\": "src/Illuminate/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Taylor Otwell",
-                "email": "taylor@laravel.com"
-            }
-        ],
-        "description": "The Laravel Framework.",
-        "homepage": "https://laravel.com",
-        "keywords": [
-            "framework",
-            "laravel"
         ]
     },
     {
@@ -2715,64 +2503,6 @@
         ]
     },
     {
-        "name": "bpocallaghan/notify",
-        "version": "2.1.1",
-        "version_normalized": "2.1.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/bpocallaghan/notify.git",
-            "reference": "107291733d2412be9f619b7833f22cc043cf71a0"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/bpocallaghan/notify/zipball/107291733d2412be9f619b7833f22cc043cf71a0",
-            "reference": "107291733d2412be9f619b7833f22cc043cf71a0",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=7.0.0"
-        },
-        "time": "2017-09-26 09:25:50",
-        "type": "library",
-        "extra": {
-            "laravel": {
-                "providers": [
-                    "Bpocallaghan\\Notify\\NotifyServiceProvider"
-                ],
-                "aliases": {
-                    "Alert": "Bpocallaghan\\Notify\\Facades\\Notify"
-                }
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Bpocallaghan\\Notify\\": "src/"
-            },
-            "files": [
-                "src/helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Ben-Piet O'Callaghan",
-                "email": "bpocallaghan@gmail.com"
-            }
-        ],
-        "description": "Laravel 5 Flash Notifications with icons and animations and with a timeout",
-        "keywords": [
-            "bootstrap",
-            "flash",
-            "laravel",
-            "notifications",
-            "notify"
-        ]
-    },
-    {
         "name": "swiftmailer/swiftmailer",
         "version": "v6.0.2",
         "version_normalized": "6.0.2.0",
@@ -2877,64 +2607,6 @@
             "csprng",
             "pseudorandom",
             "random"
-        ]
-    },
-    {
-        "name": "bpocallaghan/alert",
-        "version": "1.1.1",
-        "version_normalized": "1.1.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/bpocallaghan/alert.git",
-            "reference": "1366af96df22c57828bf579364955597eb87e143"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/bpocallaghan/alert/zipball/1366af96df22c57828bf579364955597eb87e143",
-            "reference": "1366af96df22c57828bf579364955597eb87e143",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=7.0.0"
-        },
-        "time": "2017-10-08 08:43:02",
-        "type": "library",
-        "extra": {
-            "laravel": {
-                "providers": [
-                    "Bpocallaghan\\Alert\\AlertServiceProvider"
-                ],
-                "aliases": {
-                    "Alert": "Bpocallaghan\\Alert\\Facades\\Alert"
-                }
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Bpocallaghan\\Alert\\": "src/"
-            },
-            "files": [
-                "src/helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Ben-Piet O'Callaghan",
-                "email": "bpocallaghan@gmail.com"
-            }
-        ],
-        "description": "A helper package to flash a bootstrap alert to the browser.",
-        "keywords": [
-            "alert",
-            "flash",
-            "laravel",
-            "message",
-            "notification"
         ]
     },
     {
@@ -3990,6 +3662,322 @@
             "htmlmin",
             "laravel",
             "minifier"
+        ]
+    },
+    {
+        "name": "bpocallaghan/alert",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bpocallaghan/alert.git",
+            "reference": "a874fa41f23804f734dc3b78cda77bdea0d27998"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bpocallaghan/alert/zipball/a874fa41f23804f734dc3b78cda77bdea0d27998",
+            "reference": "a874fa41f23804f734dc3b78cda77bdea0d27998",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.0.0"
+        },
+        "time": "2017-09-19 12:22:48",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Bpocallaghan\\Alert\\AlertServiceProvider"
+                ],
+                "aliases": {
+                    "Alert": "Bpocallaghan\\Alert\\Facades\\Alert"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Bpocallaghan\\Alert\\": "src/"
+            },
+            "files": [
+                "src/helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ben-Piet O'Callaghan",
+                "email": "bpocallaghan@gmail.com"
+            }
+        ],
+        "description": "A helper package to flash a bootstrap alert to the browser.",
+        "keywords": [
+            "alert",
+            "flash",
+            "laravel",
+            "message",
+            "notification"
+        ]
+    },
+    {
+        "name": "laravel/framework",
+        "version": "v5.5.14",
+        "version_normalized": "5.5.14.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/laravel/framework.git",
+            "reference": "26c700eb79e5bb55b59df2c495c9c71f16f43302"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/26c700eb79e5bb55b59df2c495c9c71f16f43302",
+            "reference": "26c700eb79e5bb55b59df2c495c9c71f16f43302",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/inflector": "~1.1",
+            "erusev/parsedown": "~1.6",
+            "ext-mbstring": "*",
+            "ext-openssl": "*",
+            "league/flysystem": "~1.0",
+            "monolog/monolog": "~1.12",
+            "mtdowling/cron-expression": "~1.0",
+            "nesbot/carbon": "~1.20",
+            "php": ">=7.0",
+            "psr/container": "~1.0",
+            "psr/simple-cache": "^1.0",
+            "ramsey/uuid": "~3.0",
+            "swiftmailer/swiftmailer": "~6.0",
+            "symfony/console": "~3.3",
+            "symfony/debug": "~3.3",
+            "symfony/finder": "~3.3",
+            "symfony/http-foundation": "~3.3",
+            "symfony/http-kernel": "~3.3",
+            "symfony/process": "~3.3",
+            "symfony/routing": "~3.3",
+            "symfony/var-dumper": "~3.3",
+            "tijsverkoyen/css-to-inline-styles": "~2.2",
+            "vlucas/phpdotenv": "~2.2"
+        },
+        "replace": {
+            "illuminate/auth": "self.version",
+            "illuminate/broadcasting": "self.version",
+            "illuminate/bus": "self.version",
+            "illuminate/cache": "self.version",
+            "illuminate/config": "self.version",
+            "illuminate/console": "self.version",
+            "illuminate/container": "self.version",
+            "illuminate/contracts": "self.version",
+            "illuminate/cookie": "self.version",
+            "illuminate/database": "self.version",
+            "illuminate/encryption": "self.version",
+            "illuminate/events": "self.version",
+            "illuminate/exception": "self.version",
+            "illuminate/filesystem": "self.version",
+            "illuminate/hashing": "self.version",
+            "illuminate/http": "self.version",
+            "illuminate/log": "self.version",
+            "illuminate/mail": "self.version",
+            "illuminate/notifications": "self.version",
+            "illuminate/pagination": "self.version",
+            "illuminate/pipeline": "self.version",
+            "illuminate/queue": "self.version",
+            "illuminate/redis": "self.version",
+            "illuminate/routing": "self.version",
+            "illuminate/session": "self.version",
+            "illuminate/support": "self.version",
+            "illuminate/translation": "self.version",
+            "illuminate/validation": "self.version",
+            "illuminate/view": "self.version",
+            "tightenco/collect": "self.version"
+        },
+        "require-dev": {
+            "aws/aws-sdk-php": "~3.0",
+            "doctrine/dbal": "~2.5",
+            "filp/whoops": "^2.1.4",
+            "mockery/mockery": "~1.0",
+            "orchestra/testbench-core": "3.5.*",
+            "pda/pheanstalk": "~3.0",
+            "phpunit/phpunit": "~6.0",
+            "predis/predis": "^1.1.1",
+            "symfony/css-selector": "~3.3",
+            "symfony/dom-crawler": "~3.3"
+        },
+        "suggest": {
+            "aws/aws-sdk-php": "Required to use the SQS queue driver and SES mail driver (~3.0).",
+            "doctrine/dbal": "Required to rename columns and drop SQLite columns (~2.5).",
+            "fzaninotto/faker": "Required to use the eloquent factory builder (~1.4).",
+            "guzzlehttp/guzzle": "Required to use the Mailgun and Mandrill mail drivers and the ping methods on schedules (~6.0).",
+            "laravel/tinker": "Required to use the tinker console command (~1.0).",
+            "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (~1.0).",
+            "league/flysystem-rackspace": "Required to use the Flysystem Rackspace driver (~1.0).",
+            "nexmo/client": "Required to use the Nexmo transport (~1.0).",
+            "pda/pheanstalk": "Required to use the beanstalk queue driver (~3.0).",
+            "predis/predis": "Required to use the redis cache and queue drivers (~1.0).",
+            "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~2.0).",
+            "symfony/css-selector": "Required to use some of the crawler integration testing tools (~3.3).",
+            "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (~3.3).",
+            "symfony/psr-http-message-bridge": "Required to psr7 bridging features (~1.0)."
+        },
+        "time": "2017-10-03 17:41:03",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.5-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/Illuminate/Foundation/helpers.php",
+                "src/Illuminate/Support/helpers.php"
+            ],
+            "psr-4": {
+                "Illuminate\\": "src/Illuminate/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "The Laravel Framework.",
+        "homepage": "https://laravel.com",
+        "keywords": [
+            "framework",
+            "laravel"
+        ]
+    },
+    {
+        "name": "unisharp/laravel-filemanager",
+        "version": "v1.8.0",
+        "version_normalized": "1.8.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/UniSharp/laravel-filemanager.git",
+            "reference": "63a788e5f62d3e9c8b8be8fd5bac9c9d59325e29"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/UniSharp/laravel-filemanager/zipball/63a788e5f62d3e9c8b8be8fd5bac9c9d59325e29",
+            "reference": "63a788e5f62d3e9c8b8be8fd5bac9c9d59325e29",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": ">=4.2.0",
+            "intervention/image": "2.*",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "orchestra/testbench": "~3.0",
+            "phpspec/phpspec": "~2.1",
+            "phpunit/phpunit": "~4.8"
+        },
+        "suggest": {
+            "ext-gd": "to use GD library based image processing.",
+            "ext-imagick": "to use Imagick based image processing."
+        },
+        "time": "2017-06-11 15:15:20",
+        "bin": [
+            "bin/debug"
+        ],
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Unisharp\\Laravelfilemanager\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Trevor Sawler",
+                "email": "trevor.sawler@gmail.com"
+            },
+            {
+                "name": "UniSharp Ltd.",
+                "email": "unisharp-service@unisharp.com"
+            }
+        ],
+        "description": "A file upload/editor intended for use with Laravel 5 and CKEditor / TinyMCE",
+        "keywords": [
+            "CKEditor",
+            "file",
+            "filemanager",
+            "image",
+            "laravel",
+            "manager",
+            "tinymce",
+            "upload"
+        ]
+    },
+    {
+        "name": "bpocallaghan/notify",
+        "version": "2.1.1",
+        "version_normalized": "2.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bpocallaghan/notify.git",
+            "reference": "107291733d2412be9f619b7833f22cc043cf71a0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bpocallaghan/notify/zipball/107291733d2412be9f619b7833f22cc043cf71a0",
+            "reference": "107291733d2412be9f619b7833f22cc043cf71a0",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.0.0"
+        },
+        "time": "2017-09-26 09:25:50",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Bpocallaghan\\Notify\\NotifyServiceProvider"
+                ],
+                "aliases": {
+                    "Alert": "Bpocallaghan\\Notify\\Facades\\Notify"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Bpocallaghan\\Notify\\": "src/"
+            },
+            "files": [
+                "src/helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ben-Piet O'Callaghan",
+                "email": "bpocallaghan@gmail.com"
+            }
+        ],
+        "description": "Laravel 5 Flash Notifications with icons and animations and with a timeout",
+        "keywords": [
+            "bootstrap",
+            "flash",
+            "laravel",
+            "notifications",
+            "notify"
         ]
     }
 ]

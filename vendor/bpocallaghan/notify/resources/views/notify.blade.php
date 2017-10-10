@@ -3,25 +3,31 @@
 	<script type="text/javascript" charset="utf-8">
         $(function ()
         {
-            @if (session('notify.title'))
-                $.notify({
-                    title: "{!! session('notify.title') !!}",
-                    content: "{!! session('notify.content') !!}",
-                    level: "{{ session('notify.level') }}",
+			@foreach(session('notify') as $k => $v)
+			
+				@if ($v['title'])
 
-                    @if (session('notify.icon'))
-                        icon: "fa fa-{{ session('notify.icon') }}",
-                    @endif
+					$.notify({
+						title: "{!! $v['title'] !!}",
+						content: "{!! $v['content'] !!}",
+						level: "{{ $v['level'] }}",
 
-                    @if (session('notify.iconSmall'))
-                        iconSmall: "fa fa-{{ session('notify.iconSmall') }}",
-                    @endif
+						@if ($v['icon'])
+							icon: "fa fa-{{ $v['icon'] }}",
+						@endif
 
-                    @if (session('notify.timeout'))
-                        timeout: {{ session('notify.timeout') }},
-                    @endif
-                });
-            @endif
+						@if ($v['iconSmall'])
+							iconSmall: "fa fa-{{ $v['iconSmall'] }}",
+						@endif
+
+						@if ($v['timeout'])
+							timeout: {{ $v['timeout'] }},
+						@endif
+						
+					});
+				@endif
+			
+			@endforeach
         });
 	</script>
 @endsection

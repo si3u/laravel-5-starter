@@ -3,27 +3,18 @@
 <div class="row">
 
   @foreach($items as $item)
-
   <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 img-row">
-    <?php /*var_dump($item);*/ $item_name = $item->name; ?>
+    <?php $item_name = $item->name; ?>
     <?php $thumb_src = $item->thumb; ?>
-    <?php $item_path = $item->is_file ? $item->url : $item->path;  ?>
+    <?php $item_path = $item->is_file ? $item->url : $item->path; ?>
 
     <div class="square clickable {{ $item->is_file ? 'file' : 'folder'}}-item" data-id="{{ $item_path }}">
       @if($thumb_src)
-      <img src="{{ $thumb_src }}" title="Grand Format" alt="image {{ infos('societe').' - '.$item->name }}">
+      <img src="{{ $thumb_src }}">
       @else
       <i class="fa {{ $item->icon }} fa-5x"></i>
       @endif
     </div>
-	  
-{{-- Ajout pour avoir la miniature facilement --}}
-    @if( $item->is_file && $thumb_src)
-	<div class="clickable file-item text-center" data-id="{{ $item->thumb }}" style="border: 1px solid #ccc">
-      <img src="{{ $thumb_src }}" width="50px" title="Miniature" alt="image {{ infos('societe').' - '.$item->name }}">
-	  <p style="margin:-3px 0;padding:0"><small><em>{{ config('lfm.thumb_img_width').'x'.config('lfm.thumb_img_height') }}px</em></small></p>
-    </div>
-    @endif
 
     <div class="caption text-center">
       <div class="btn-group">
@@ -32,7 +23,7 @@
         </button>
         <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">
           <span class="caret"></span>
-          <span class="sr-only">Menu</span>
+          <span class="sr-only">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu" role="menu">
           <li><a href="javascript:rename('{{ $item_name }}')"><i class="fa fa-edit fa-fw"></i> {{ Lang::get('laravel-filemanager::lfm.menu-rename') }}</a></li>
@@ -51,11 +42,6 @@
       </div>
     </div>
 
-	  
-	  
-	
-	
-	
   </div>
   @endforeach
 

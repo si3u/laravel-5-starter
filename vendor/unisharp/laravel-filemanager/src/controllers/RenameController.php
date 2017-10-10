@@ -1,6 +1,4 @@
-<?php
-
-namespace Unisharp\Laravelfilemanager\controllers;
+<?php namespace Unisharp\Laravelfilemanager\controllers;
 
 use Illuminate\Support\Facades\File;
 use Unisharp\Laravelfilemanager\Events\ImageIsRenaming;
@@ -9,7 +7,8 @@ use Unisharp\Laravelfilemanager\Events\FolderIsRenaming;
 use Unisharp\Laravelfilemanager\Events\FolderWasRenamed;
 
 /**
- * Class RenameController.
+ * Class RenameController
+ * @package Unisharp\Laravelfilemanager\controllers
  */
 class RenameController extends LfmController
 {
@@ -31,7 +30,7 @@ class RenameController extends LfmController
             }
         }
 
-        if (! File::isDirectory($old_file)) {
+        if (!File::isDirectory($old_file)) {
             $extension = File::extension($old_file);
             $new_name = str_replace('.' . $extension, '', $new_name) . '.' . $extension;
         }
@@ -53,7 +52,6 @@ class RenameController extends LfmController
         if (File::isDirectory($old_file)) {
             File::move($old_file, $new_file);
             event(new FolderWasRenamed($old_file, $new_file));
-
             return parent::$success_response;
         }
 

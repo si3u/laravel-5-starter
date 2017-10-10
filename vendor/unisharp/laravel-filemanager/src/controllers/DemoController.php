@@ -1,12 +1,12 @@
-<?php
-
-namespace Unisharp\Laravelfilemanager\controllers;
+<?php namespace Unisharp\Laravelfilemanager\controllers;
 
 /**
- * Class DemoController.
+ * Class DemoController
+ * @package Unisharp\Laravelfilemanager\controllers
  */
 class DemoController extends LfmController
 {
+
     /**
      * @return mixed
      */
