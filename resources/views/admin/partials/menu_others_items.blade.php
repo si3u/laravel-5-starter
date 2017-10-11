@@ -1,4 +1,6 @@
 
+{{-- Sert à naviguer facilement depuis l'édition des Actus ou Réalisations --}}
+
 @if(isset($menuOthersItems))
 
 @section('scripts')

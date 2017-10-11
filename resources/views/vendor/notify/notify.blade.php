@@ -1,32 +1,37 @@
-
 @section('scripts')
 	@parent
 	<script type="text/javascript" charset="utf-8">
         $(function () {
 			
-            @if ( session('notify') )
+			
+            @if ( session('notify.title') )
 
-				@foreach(session('notify') as $k => $v)
+					@foreach(session('notify.title') as $k => $v)
 
-					$.notify({
-						title: "{!! $v["title"] !!}",
-						content: "{!! $v["content"] !!}",
-						level: "{{ $v["level"] }}",
+						$.notify({
+							title: "{!! session("notify.title.$k") !!}",
+							content: "{!! session("notify.content.$k") !!}",
+							level: "{{ session("notify.level.$k") }}",
 
-						@if ($v["icon"])
-							icon: "fa fa-{{ $v["icon"] }}",
-						@endif
+							@if (session("notify.icon.$k"))
+								icon: "fa fa-{{ session("notify.icon.$k") }}",
+							@endif
 
-						@if ($v["iconSmall"])
-							iconSmall: "fa fa-{{ $v["iconSmall"] }}",
-						@endif
+							@if (session("notify.iconSmall.$k"))
+								iconSmall: "fa fa-{{ session("notify.iconSmall.$k") }}",
+							@endif
 
-						@if ($v["timeout"])
-							timeout: {{ $v["timeout"] }},
-						@endif
-					});
-				@endforeach
-			@endif
+							@if (session("notify.timeout.$k"))
+								timeout: {{ session("notify.timeout.$k") }},
+							@endif
+						});
+
+					@endforeach
+		
+				{{ session()->forget('notify') }}
+
+            @endif
+			
         });
 	</script>
 @endsection

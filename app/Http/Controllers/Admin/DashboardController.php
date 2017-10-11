@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Titan\Controllers\TitanAdminController;
 
-use Titan\Controllers\TitanWebsiteController as WebsiteController; // pour navigation Website
+use Titan\Controllers\TitanWebsiteController as WebsiteController; // pour navigation Website in Dashboard
 
 //use App\Http\Controllers\Admin\History\HistoryController as History; // Pour Vidage automatique des Activités
 
@@ -29,7 +29,9 @@ class DashboardController extends AdminController
 	
 	
 
-	 // Vidage auto des Activités
+	/**
+	 *  Vidage automatique des Activités
+	 */
 //	public function __destruct()
 //	{
 //		$this->destroyHistory(); // Vidage auto des Activités

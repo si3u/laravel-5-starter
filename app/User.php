@@ -72,6 +72,18 @@ class User extends Authenticatable
     ];
 
     /**
+     * Validation rules for Create an User/Admin
+     */
+    static public $rulesCreate = [
+        'firstname' => 'required',
+        'lastname'  => 'required',
+        'gender'    => 'required|in:Mr,Mme',
+        'roles'     => 'required|array',
+        'email'     => 'required|email|unique:users',
+        'password'  => 'required|min:8|confirmed',
+    ];
+
+    /**
      * Validation rules for this model
      */
     static public $rulesProfile = [

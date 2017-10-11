@@ -45,7 +45,7 @@ class ContactUsSubmitted extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->line($this->row->fullname . ' submitted contact us.')
+        return (new MailMessage)->line($this->row->fullname . ' demande de renseignements.')
             ->line('Fullname: ' . $this->row->fullname)
             ->line('Email: ' . $this->row->email)
             ->line('Phone: ' . $this->row->phone)
@@ -60,7 +60,7 @@ class ContactUsSubmitted extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            'message' => $this->row->fullname . ' submitted contact us.',
+            'message' => $this->row->fullname . ' demande de renseignements.',
             'id'      => $this->row->id,
             'type'    => get_class($this->row),
         ];

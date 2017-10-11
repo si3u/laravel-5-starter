@@ -81,15 +81,31 @@ class AdministratorsController extends AdminController
 	/**
 	 * Store a newly created User in storage.
 	 *
+	 * @param User $user
 	 * @param Request $request
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(User $user, Request $request)
 	{
-	    $this->validate($request, User::$rules);
-// TODO	
-        $this->createEntry(User::class, $request->all());
+	    $this->validate($request, User::$rulesCreate, []);
+		
+		$genderImage = (input('gender') == 'Mme') ? 'female.png' : 'male.png';
+		$request->merge(['image' => $genderImage]);
+		
+		$request->merge(['password' => bcrypt(input('password'))]);
+		$request->merge(['confirmed_at' => date('Y-m-d H:i:s')]);
 
+		// Create User
+        $row = $this->createEntry(User::class, $request->except(['roles', 'password_confirmation']));
+
+		// Roles
+		$id = $user->id;
+		$user->id = $row->id;
+		$user->roles()->sync(input('roles'));
+		$user->id = $id;
+
+		log_activity('Create User/Admin', 'Compte pour '.input('gender')." ".input('lastname')." créé");
+		
         return redirect_to_resource();
 	}
 
@@ -121,7 +137,7 @@ class AdministratorsController extends AdminController
             'roles'     => 'required|array',
         ]);
 
-        if ($user->id > 1) {
+        if ( ! user()->isAdmin() ) {
             notify()->warning('Oops', 'Vous ne pouvez pas éditer cet utilisateur.');
 
             return redirect_to_resource();
@@ -148,7 +164,7 @@ class AdministratorsController extends AdminController
      */
     public function destroy(User $user, Request $request)
     {
-        if ($user->id > 1) {
+        if ( ! user()->isAdmin() ) {
             notify()->warning('Oops', 'Vous ne pouvez pas supprimer cet utilisateur.');
         }
         else {

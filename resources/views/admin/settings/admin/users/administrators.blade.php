@@ -19,20 +19,17 @@
                         <a class="btn btn-labeled btn-primary" href="{{ Request::url().'/invites' }}">
                             <span class="btn-label"><i class="fa fa-fw fa-user-secret"></i></span>Inviter un Administrateur
                         </a>
-			{{-- TODO
                         <a class="btn btn-labeled btn-primary" href="{{ Request::url().'/create' }}">
                             <span class="btn-label"><i class="fa fa-fw fa-user-plus"></i></span>Ajouter un Administrateur
                         </a>
-				--}}
                     </div>
 
                     <table id="tbl-list" data-server="false" class="dt-table table nowrap table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                         <tr>
-                            <th><i class="fa fa-fw fa-user text-muted"></i> Nom</th>
+                            <th><i class="fa fa-fw fa-user text-muted"></i> Prénom Nom</th>
                             <th><i class="fa fa-fw fa-envelope text-muted"></i> Email</th>
                             <th><i class="fa fa-fw fa-mobile-phone text-muted"></i> Mobile</th>
-                            <th>Genre</th>
                             <th>Rôles</th>
                             <th><i class="fa fa-fw fa-calendar text-muted"></i> Dernière connexion</th>
                             <th>Actions</th>
@@ -41,10 +38,13 @@
                         <tbody>
                         @foreach ($items as $item)
                             <tr>
-                                <td>{{ $item->fullname }}</td>
-                                <td>{{ $item->email }}</td>
+                                <td>{{ $item->gender }} {{ $item->fullname }}</td>
+                                <td>
+									<a href="mailto:{{ $item->email }}" title="Envoyer un mail à {{ $item->gender }} {{ $item->lastname }}">
+										{{ $item->email }}
+									</a>
+								</td>
                                 <td>{{ $item->cellphone }}</td>
-                                <td>{{ $item->gender }}</td>
                                 <td>{{ $item->roles_string }}</td>
                                 <td>{{ ($item->logged_in_at)? $item->logged_in_at->diffForHumans():'-' }}</td>
                                 <td>

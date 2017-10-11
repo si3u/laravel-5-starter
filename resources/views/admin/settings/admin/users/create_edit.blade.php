@@ -14,14 +14,39 @@
                 <div class="box-body no-padding">
 
                     @include('admin.partials.info')
+					
+					
+					@if(user()->image)
+					<section>
+						@if(isset($item))
+						<img src="/uploads/images/{{ $item->image }}" style="max-height: 80px;">
+						@endif
+					</section>
+					@endif
 
-                    <form id="form-edit" method="POST" action='{{$selectedNavigation->url . (isset($item)? "/{$item->id}" : '')}}' accept-charset="UTF-8" enctype="multipart/form-data">
+
+                    <form id="form-edit" method="POST" action='{{$selectedNavigation->url . (isset($item)? "/{$item->id}" : "/store")}}' accept-charset="UTF-8" enctype="multipart/form-data">
                         <input name="_token" type="hidden" value="{{ csrf_token() }}">
                         <input name="_method" type="hidden" value="{{isset($item)? 'PUT':'POST'}}">
 
                         <fieldset>
                             <div class="row">
-                                <div class="col col-6">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Genre</label>
+                                        <div class="inline-group">
+                                            <label class="radio" style="margin-top: 0px;">
+                                                <input type="radio" name="gender" value="Mr" {{ ($errors->any() && old('gender') == 'Mr'? 'checked="checked"' : ((isset($item) && $item->gender == 'Mr') ? 'checked="checked"':'') ) }}>
+                                                <i></i>Mr
+                                            </label>
+                                            <label class="radio" style="margin-top: 0px;">
+                                                <input type="radio" name="gender" value="Mme" {{ ($errors->any() && old('gender') == 'Mme' ? 'checked="checked"' : ((isset($item) && $item->gender == 'Mme') ? 'checked="checked"':'') ) }}>
+                                                <i></i>Mme
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-5">
                                     <div class="form-group {{ form_error_class('firstname', $errors) }}">
                                         <label for="firstname">Prénom</label>
                                         <div class="input-group">
@@ -32,7 +57,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col col-6">
+                                <div class="col col-5">
                                     <div class="form-group {{ form_error_class('lastname', $errors) }}">
                                         <label for="lastname">Nom</label>
                                         <div class="input-group">
@@ -46,6 +71,13 @@
 
                             <div class="row">
                                 <div class="col-md-6">
+									<div class="form-group {{ form_error_class('roles', $errors) }}">
+										<label for="roles">Rôles</label>
+										{!! form_select('roles[]', $roles, ($errors && $errors->any()? old('roles') : (isset($item)? $item->roles->pluck('id')->all() : '')), ['class' => 'select2 select2notags form-control', 'multiple']) !!}
+										{!! form_error_message('roles', $errors) !!}
+									</div>
+								</div>
+                                <div class="col-md-6">
                                     <div class="form-group {{ form_error_class('cellphone', $errors) }}">
                                         <label for="cellphone">Téléphone Mobile</label>
                                         <div class="input-group">
@@ -56,7 +88,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group {{ form_error_class('telephone', $errors) }}">
                                         <label for="telephone">Téléphone Fixe</label>
                                         <div class="input-group">
@@ -69,7 +101,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col col-6">
+                                <div class="col col-5">
                                     <section class="form-group {{ form_error_class('email', $errors) }}">
                                         <label for="email">E-mail @if(isset($item)) (readonly) @endif</label>
                                         <div class="input-group">
@@ -80,7 +112,7 @@
                                     </section>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-2">
                                     <div class="form-group {{ form_error_class('born_at', $errors) }}">
                                         <label for="password">Date d'Anniversaire</label>
                                         <div class="input-group">
@@ -91,9 +123,9 @@
                                     </div>
                                 </div>
                             </div>
-			{{--  TODO
+			
 						@if( ! isset($item))
-                            <div class="row">
+							<div class="row">
                                 <div class="col col-6">
                                     <section class="form-group {{ form_error_class('password', $errors) }}">
                                         <label for="password">Mot de passe</label>
@@ -107,7 +139,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group {{ form_error_class('password_confirmation', $errors) }}">
-                                        <label for="password_confirmation">Répéter mot de passe</label>
+                                        <label for="password_confirmation">Confirmer mot de passe</label>
                                         <div class="input-group">
                                             <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" placeholder="Répéter mot de passe" value=""/>
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -117,12 +149,7 @@
                                 </div>
                             </div>
 						@endif
-				--}}	
-                            <div class="form-group {{ form_error_class('roles', $errors) }}">
-                            	<label for="roles">Rôles</label>
-                            	{!! form_select('roles[]', $roles, ($errors && $errors->any()? old('roles') : (isset($item)? $item->roles->pluck('id')->all() : '')), ['class' => 'select2 select2notags form-control', 'multiple']) !!}
-                            	{!! form_error_message('roles', $errors) !!}
-                            </div>
+					
                         </fieldset>
 
                         @include('admin.partials.form_footer')
