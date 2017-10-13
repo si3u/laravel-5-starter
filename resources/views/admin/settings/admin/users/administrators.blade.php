@@ -17,10 +17,10 @@
 
                     <div class="well well-sm well-toolbar">
                         <a class="btn btn-labeled btn-primary" href="{{ Request::url().'/invites' }}">
-                            <span class="btn-label"><i class="fa fa-fw fa-user-secret"></i></span>Inviter un Administrateur
+                            <span class="btn-label"><i class="fa fa-fw fa-user-secret"></i></span>Inviter un Utilisateur/Administrateur
                         </a>
                         <a class="btn btn-labeled btn-primary" href="{{ Request::url().'/create' }}">
-                            <span class="btn-label"><i class="fa fa-fw fa-user-plus"></i></span>Ajouter un Administrateur
+                            <span class="btn-label"><i class="fa fa-fw fa-user-plus"></i></span>Ajouter un Utilisateur/Administrateur
                         </a>
                     </div>
 

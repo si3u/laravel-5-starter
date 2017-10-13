@@ -15,7 +15,8 @@ class CreateUserInvitesTable extends Migration
         Schema::create('user_invites', function (Blueprint $table) {
             $table->increments('id')->unique()->index();
             $table->string('email')->unique()->index();
-            $table->string('token', '50');
+            $table->string('roles', '30');
+            $table->string('token', '70');
             $table->integer('invited_by')->unsigned();
             $table->timestamps('created_at');
             $table->timestamp('claimed_at')->nullable();

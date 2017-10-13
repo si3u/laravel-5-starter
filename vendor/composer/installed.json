@@ -2251,56 +2251,6 @@
         "homepage": "https://github.com/firebase/php-jwt"
     },
     {
-        "name": "google/auth",
-        "version": "v1.0.1",
-        "version_normalized": "1.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/google/google-auth-library-php.git",
-            "reference": "db8e3022a308cb0e988026d38e67b91a42b41622"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/db8e3022a308cb0e988026d38e67b91a42b41622",
-            "reference": "db8e3022a308cb0e988026d38e67b91a42b41622",
-            "shasum": ""
-        },
-        "require": {
-            "firebase/php-jwt": "~2.0|~3.0|~4.0|~5.0",
-            "guzzlehttp/guzzle": "~5.3.1|~6.0",
-            "guzzlehttp/psr7": "~1.2",
-            "php": ">=5.4",
-            "psr/cache": "^1.0",
-            "psr/http-message": "^1.0"
-        },
-        "require-dev": {
-            "friendsofphp/php-cs-fixer": "^1.11",
-            "phpunit/phpunit": "3.7.*"
-        },
-        "time": "2017-07-31 16:34:40",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "src/"
-            ],
-            "psr-4": {
-                "Google\\Auth\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "Google Auth Library for PHP",
-        "homepage": "http://github.com/google/google-auth-library-php",
-        "keywords": [
-            "Authentication",
-            "google",
-            "oauth2"
-        ]
-    },
-    {
         "name": "google/apiclient",
         "version": "v2.2.0",
         "version_normalized": "2.2.0.0",
@@ -3978,6 +3928,53 @@
             "laravel",
             "notifications",
             "notify"
+        ]
+    },
+    {
+        "name": "google/auth",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/google/google-auth-library-php.git",
+            "reference": "548d27d670f0236dc5258fa4cdde6e7b63464cfd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/548d27d670f0236dc5258fa4cdde6e7b63464cfd",
+            "reference": "548d27d670f0236dc5258fa4cdde6e7b63464cfd",
+            "shasum": ""
+        },
+        "require": {
+            "firebase/php-jwt": "~2.0|~3.0|~4.0|~5.0",
+            "guzzlehttp/guzzle": "~5.3.1|~6.0",
+            "guzzlehttp/psr7": "~1.2",
+            "php": ">=5.4",
+            "psr/cache": "^1.0",
+            "psr/http-message": "^1.0"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "^1.11",
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2017-10-10 17:01:45",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Google\\Auth\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "Google Auth Library for PHP",
+        "homepage": "http://github.com/google/google-auth-library-php",
+        "keywords": [
+            "Authentication",
+            "google",
+            "oauth2"
         ]
     }
 ]

@@ -61,4 +61,7 @@ Route::group(['namespace' => 'Api'], function () {
     // Create Directory for Actus & Articles
     Route::get('/createDirectory/{type}/{dir}', 'CreateDirectoryController@create');
 	
+    // Force Delete User Invited for ReSend Invitation
+    Route::post('/invited/resend/{email}/delete', 'UsersController@destroyForReSend');
+	
 });

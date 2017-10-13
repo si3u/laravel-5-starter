@@ -1,12 +1,12 @@
 @extends('layouts.email')
 
 @section('content')
-    <p class="dear">Hi <strong>{!! $name !!}</strong></p>
+    <p class="dear">Bonjour, <strong>{!! $name !!}</strong></p>
 
-    <p>You have been created as an admin at {{ config('app.name') }}</p>
+    <p>Vous avez été créé en tant qu'utilisateur/administrateur sur {{ config('app.name') }}</p>
     <p>
-        Please click
-        <a href="{{ url('/auth/register/confirm/'.$token) }}">here</a>
-        to activate your account
+        Cliquez s'il vous plaît :
+        <a href="{{ url('/auth/register/confirm/'.$token) }}">ICI</a>
+        pour activer votre compte.
     </p>
 @stop

@@ -35,7 +35,7 @@ Certaines infos se gèrent depuis /app/Helpers/infos_helpers.php
 
 Pour pouvoir utiliser webpack.mix et faire la compression des assets, installer nodejs :
 
-<code>npm install</code> depuis la racine.
+<code>npm install</code> depuis la racine, puis <code>npm run prod</code>.
 
 ### Paquets présents
 

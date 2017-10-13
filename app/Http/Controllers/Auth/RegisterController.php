@@ -8,6 +8,8 @@ use App\Models\UserInvite;
 use Illuminate\Http\Request;
 use Titan\Controllers\TitanController;
 
+use Mail;
+
 class RegisterController extends TitanController
 {
     /**
@@ -15,7 +17,7 @@ class RegisterController extends TitanController
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('web');//'guest');
     }
 
     /**
@@ -26,13 +28,12 @@ class RegisterController extends TitanController
      */
     public function showRegistrationForm($token)
     {
-        $this->title = 'Register';
+        $this->title = 'S\'enregistrer';
 
         // check if token is valid
         $row = UserInvite::whereToken($token)->whereNull('claimed_at')->first();
         if (!$row) {
-            alert()->error('Whoops!', 'The token is not valid for registration');
-
+            alert()->error('Oops!', 'Le jeton n\'est pas valide pour cet enregistrement.');
             return redirect(route('login'));
         }
 
@@ -47,33 +48,40 @@ class RegisterController extends TitanController
      */
     public function register(Request $request)
     {
-        $this->validate($request, User::$rules, []);
+		$this->validate($request, User::$rules, []);
 
+		$genderImage = (input('gender') == 'Mme') ? 'female.png' : 'male.png';
         // create new user
         $user = User::create([
             'firstname'          => input('firstname'),
             'lastname'           => input('lastname'),
             'gender'             => input('gender'),
             'email'              => input('email'),
+			'image'				 => $genderImage,
             'password'           => bcrypt(input('password')),
             'confirmation_token' => null,
         ]);
+		
+		// Save Roles User
+		$userRoles = UserInvite::where('email', input('email'))->first()->roles;
+		$user->roles()->sync(json_decode($userRoles));
 
         // set invite claimed
         UserInvite::where('token', input('token'))->update(['claimed_at' => Carbon::now()]);
 
         // send the confirmation mail
-        \Mail::send('emails.admin.auth.register_confirm',
+        Mail::send('emails.admin.auth.register_confirm',
             ['name' => $user->fullname, 'token' => $user->confirmation_token],
             function ($message) use ($user) {
-                $message->to($user->email, $user->fullname)->subject('Confirm Registration');
+                $message->to($user->email, $user->fullname)
+						->subject('Confirmation Enregistrement');
             });
 
-        alert()->success('Thank you,',
-            'your account has been created, please check your inbox for further instructions.');
+        alert()->success('Merci,',
+            'Votre compte a été créé, veuillez surveiller votre boîte de réception pour retrouver les instructions afin de l\'activer.');
 
-        log_activity('User Registered',
-            $user->fullname . ' registered on ' . Carbon::now()->format('d M Y'), $user);
+        log_activity('User Enregistré',
+            $user->fullname . ' enregistré le ' . Carbon::now()->format('d M Y'), $user);
 
         return redirect(route('login'));
     }
@@ -87,26 +95,27 @@ class RegisterController extends TitanController
     public function confirmRegister($token)
     {
         $user = User::where('confirmation_token', $token)->first();
+		
         if ($user) {
             if ($user->confirmed_at && strlen($user->confirmed_at) > 6) {
-                alert()->info('Account is Active',
-                    'Your account is already active, try to sign in');
+                alert()->info('Compte activé',
+                    'Votre compte est déjà actif, essayez de vous connecter.');
             }
             else {
                 $user->confirmed_at = Carbon::now();
                 $user->update();
 
-                alert()->success('Success', 'Congratulations, your account has been activated');
+                alert()->success('Succès', 'Félicitations, votre compte a été activé.');
 
-                log_activity('User Confirmed',
-                    $user->fullname . ' confirmed account ' . Carbon::now()->format('d M Y'),
+                log_activity('User Confirmé',
+                    $user->fullname . ' compte confirmé ' . Carbon::now()->format('d M Y'),
                     $user);
             }
         }
         else {
-            alert()->error('Whoops!', 'Sorry, the token does not exist');
+            alert()->error('Oops!', 'Désolé, le jeton n\'existe pas');
 
-            log_activity('User Confirmed', 'INVALID TOKEN');
+            log_activity('User NON Confirmé', 'INVALID TOKEN');
         }
 
         return redirect(route('login'));

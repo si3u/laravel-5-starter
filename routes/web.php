@@ -179,6 +179,7 @@ Route::group(['middleware' => 'https'], function () {
 					// users
 					Route::get('users/invites', 'AdministratorsController@showInvites');
 					Route::post('users/invites', 'AdministratorsController@postInvite');
+					Route::post('users/invites/{reSend}', 'AdministratorsController@postInvite'); // Renvoi de l'invitation
 					Route::post('users/store', 'AdministratorsController@store');
 					Route::resource('users', 'AdministratorsController');
 

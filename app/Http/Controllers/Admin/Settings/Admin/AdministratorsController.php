@@ -36,33 +36,47 @@ class AdministratorsController extends AdminController
      */
     public function showInvites()
     {
-        return $this->view('settings.admin.users.invite')->with('invited', UserInvite::all());
+        return $this->view('settings.admin.users.invite')
+					->withInvited(UserInvite::where('claimed_at', null)->get()) // without account create
+					->withRoles(Role::getAllLists())	;
     }
+		
 
     /**
+	 * Send Mail Invitation
+	 * @param STR $reSend ReSend invitation
      * @param \Illuminate\Http\Request $request
      * @return mixed
      */
-    public function postInvite(Request $request)
+    public function postInvite($reSend = false, Request $request)
     {
-        $this->validate($request, [ 'email' => 'required|email|unique:users|unique:user_invites' ]);
+		if ( ! $reSend) // Si c'est pas un renvoi d'invitation
+		{
+			$this->validate($request, [
+				'email' => 'required|email|unique:users|unique:user_invites',
+				'roles' => 'required|array',
+			]);
 
-        // create row
-        $row = UserInvite::create($request->only('token', 'email', 'invited_by'));
+			// create row
+			$row = UserInvite::create([
+					'email' => input('email'),
+					'roles' => json_encode(input('roles')),
+					'token' => input('_token'),
+					'invited_by' => input('invited_by')
+			]);
+
+		} else {
+			$row = UserInvite::where('email', input('email'))->first();
+		}
 
         // send the invitation mail
-        $mail = Mail::send('emails.admin.auth.invite', ['userInvite' => $row],
-            function ($message) use ($row) {
-                $message->to($row->email, $row->email)
-                    ->subject('Invité en tant qu\'administrateur à ' . config('app.name'));
-            });
-		if($mail)
-		{
-			notify()->success('Succès', 'Invitation envoyée à ' . $row->email, 'thumbs-up bounce animated');
-		} else {
-			notify()->error('Erreur', 'Une erreur est survenue à l\'envoi de l\'invitation à <b>' . $row->email. '</b>', 'thumbs-up bounce animated');
-		}
-        
+		Mail::send('emails.admin.auth.invite', ['userInvite' => $row],
+			function ($message) use ($row) {
+				$message->to($row->email, $row->email)
+						->subject('Invité par l\'administration ' . config('app.name'));
+			});
+
+		notify()->success('Succès', 'Invitation envoyée à ' . $row->email, 'thumbs-up bounce animated');
 
         return redirect_to_resource();
     }
@@ -79,7 +93,7 @@ class AdministratorsController extends AdminController
 	}
 
 	/**
-	 * Store a newly created User in storage.
+	 * Store a newly created User/Admin in storage.
 	 *
 	 * @param User $user
 	 * @param Request $request
@@ -136,9 +150,9 @@ class AdministratorsController extends AdminController
             'lastname'  => 'required',
             'roles'     => 'required|array',
         ]);
-
+		
         if ( ! user()->isAdmin() ) {
-            notify()->warning('Oops', 'Vous ne pouvez pas éditer cet utilisateur.');
+            notify()->warning('Oops', 'Vous ne pouvez pas modifier cet utilisateur.');
 
             return redirect_to_resource();
         }
@@ -168,7 +182,7 @@ class AdministratorsController extends AdminController
             notify()->warning('Oops', 'Vous ne pouvez pas supprimer cet utilisateur.');
         }
         else {
-            $this->deleteEntry($user, $request);
+			$this->deleteEntry($user, $request);
         }
 
         return redirect_to_resource();

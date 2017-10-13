@@ -1,11 +1,11 @@
 @extends('layouts.email')
 
 @section('content')
-    <p class="dear">Hey, <strong>{!! $obj->firstname . ' ' . $obj->lastname  !!}</strong></p>
+    <p class="dear">Bonjour, <strong>{!! $obj->firstname . ' ' . $obj->lastname  !!}</strong></p>
 
     <p>&nbsp;</p>
-    <p>Thank you for getting in touch!</p>
+    <p>Merci de nous avoir contacté !</p>
 
-    <p>We appreciate you contacting us from the <strong>{{ $obj->type }}</strong> form. We have received your message and will respond as soon as possible.</p>
-    <p>Talk soon.</p>
+    <p>Nous vous remercions de nous avoir contacté par le formulaire <strong>{{ $obj->type }}</strong>. Nous avons reçu votre message et répondrons dès que possible.</p>
+    <p>Cordialement.</p>
 @stop

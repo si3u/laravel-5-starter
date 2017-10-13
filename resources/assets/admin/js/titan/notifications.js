@@ -49,13 +49,17 @@ function getHeaderNotifications()
             for (var i = 0; i < items.length; i++) {
                 var item = items[i];
 
-                var html = '<li><a href="#"><p style="margin-left: 0px; color: #444">';
+                var html = '<li><a href="#">';
+				html += '<p style="margin-left: 0px; color: #444">';
                 html += item['title'];
-                html += '<small class="pull-right"><i class="fa fa-clock-o"></i> ';
-                html += item['created_at'];
-                html += '</small></p><p style="margin-left: 0px;">';
+				html += '</p>';
+				html += '<p style="margin-left: 0px;">';
                 html += item['message'];
-                html += '</p></a></li>';
+                html += '</p>';
+                html += '<p style="margin-left: 0px;" class="text-right"><small><i class="fa fa-clock-o"></i> ';
+                html += item['created_at'];
+                html += '</small></p>';
+				html += '</a></li>';
 
                 // if cookie
                 if (cookie) {
