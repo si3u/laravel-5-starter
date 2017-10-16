@@ -1,31 +1,50 @@
 # wicod/laravel-5-starter
-#### v0.0.2
+#### v0.0.4
 
 Laravel 5 starter en Français sur la base de <a href="https://github.com/bpocallaghan/laravel-admin-starter" target="_blank">bpo-callaghan/laravel-admin-starter</a>.
 
 Version Laravel <b>5.5.14</b>
 
-Tout prêt, tout y est, jusqu'au système de corbeille (ajouté) en passant par sa classe Notify() revue pour afficher plusieurs messages à la suite et d'autres petites améliorations.
+Tout prêt, tout y est, jusqu'au système de corbeille (ajouté) en passant par la classe Notify() revue pour afficher plusieurs messages à la suite et d'autres petites améliorations.
 
 ## Installation
 
 Il suffit télécharger le paquet :
-
-<code>git clone https://github.com/wicod/laravel-5-starter.git nouveau-projet</code>
-<!-- OU <code>composer require wicod/laravel-5-starter</code> -->
-
-Et : <code>php artisan package:discover</code>
+```bash
+git clone https://github.com/wicod/laravel-5-starter.git nouveau-projet
+```
+Puis :
+```bash
+php artisan package:discover
+```
 
 Créer une base de données pour le projet.
-Ensuite remplir correctement le .env, régénérer la clé <code>php artisan key:generate</code> puis <code>php artisan migrate</code> avec un coup de <code>php artisan db:seed</code> (ou utiliser l'archive contenant la bdd) et de suivre quelques recommendations de <a href="https://github.com/bpocallaghan/laravel-admin-starter" target="_blank">Mr callaghan</a>.
+Ensuite remplir correctement le .env, régénérer la clé : 
+```bash
+php artisan key:generate
+```
+Après cela, la base de données (ou utiliser celle fournie, déjà traduite) :
+```bash
+php artisan migrate
+```
+Et pour la remplir :
+```bash
+php artisan db:seed
+```
 
-##### Connexion Admininstration : admin@mail.com &nbsp; &nbsp; 12345678
+Peut-être suivre quelques recommandations de <a href="https://github.com/bpocallaghan/laravel-admin-starter" target="_blank">Mr callaghan</a>.
+
+##### Connexion Administration : admin@mail.com &nbsp; &nbsp; 12345678
 
 Pour de meilleurs résultats, l'utilisation d'hôte virtuel est recommendé. Pour ça c'est par <a href="https://memo.wicod.fr/mettre-en-place-virtual-host-simplement/" target="_blank">ici</a>.
 
 Penser peut-être à un <code>sudo chmod -R 777 sur/la/racine</code>.
 
-Penser aux <code>php artisan config:clear</code> et <code>php artisan config:cache</code>. En raison de l'utilisation d'Api, <code>php artisan route:cache</code> ne fonctionne pas.
+Penser aux 
+```bash
+php artisan config:cache
+```
+En raison de l'utilisation d'Api, <code>php artisan route:cache</code> ne fonctionne pas.
 
 ### Notes
 

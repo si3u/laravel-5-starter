@@ -12,13 +12,13 @@ class UserTableSeeder extends Seeder
         DB::delete('TRUNCATE role_user');
 
         //-------------------------------------------------
-        // MOI
+        // ADMIN
         //-------------------------------------------------
         $user = User::create([
-            'firstname'    => 'Nicolas',
-            'lastname'     => 'Roth',
-            'cellphone'    => '06 76 75 37 14',
-            'email'        => 'roth.nicolas6@gmail.com',
+            'firstname'    => 'Admin',
+            'lastname'     => 'Admin',
+            'cellphone'    => '01 23 45 67 89',
+            'email'        => 'admin@mail.com',
             'gender'       => 'male',
             'password'     => bcrypt('12345678'),
             'confirmed_at' => Carbon::now()

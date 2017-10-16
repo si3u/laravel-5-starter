@@ -41,6 +41,6 @@
         </div>
     </div>
 
-	@include('admin.locations.map', ['marker' => false])
+	@include('admin.locations.map')
 
 @endsection

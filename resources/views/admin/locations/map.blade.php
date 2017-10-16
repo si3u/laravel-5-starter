@@ -31,20 +31,17 @@
     <script type="text/javascript" charset="utf-8">
         $(function ()
         {
-            var latitude = {{ isset($item) && strlen($item->latitude) > 2? $item->latitude : 47.93 }};
-            var longitude = {{ isset($item) && strlen($item->longitude) > 2? $item->longitude : 6.49 }};
+            var latitude = {{ isset($item) && strlen($item->latitude) > 2? $item->latitude : 48.856614 }}; /* Paris */
+            var longitude = {{ isset($item) && strlen($item->longitude) > 2? $item->longitude : 2.352222 }};
             var zoom_level = {{ isset($item) && strlen($item->zoom_level) >= 1? $item->zoom_level : 6 }};
 
-			var marker = ("{{ $marker }}") ? true : false;
-
-			if (marker) {
-				initGoogleMapEditMarker('map_canvas', latitude, longitude, zoom_level);
-			} else {
+			var marker = ("{{ isset($marker) && $marker == true }}") ? true : false;
+			if (marker) { /* create / edit */
+				initGoogleMapEditMarker('map_canvas', latitude, longitude, zoom_level); /* map with placement marker */
+			} else { /* show */
 				var map = initGoogleMapEditClean('map_canvas', latitude, longitude, zoom_level);
-				addGoogleMapMarker(map, latitude, longitude, false, "{{ $selectedNavigation->title .' : '. $item->title }}" );
+				addGoogleMapMarker(map, latitude, longitude, false, "{{ $selectedNavigation->title .' : '. ( isset($item) ? $item->title : '' ) }}" );
 			}
-            
-			
-        })
+        });
     </script>
 @endsection
