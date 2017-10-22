@@ -20,7 +20,9 @@
 					<table id="tbl-list" data-server="false" class="dt-table table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 						<tr>
-							<th>Tag</th>
+							<th>Nom</th>
+							<th class="desktop">Description</th>
+							<th>Nombre</th>
 							<th>Slug</th>
 							<th>Créé le</th>
 							<th>Actions</th>
@@ -30,6 +32,8 @@
 						@foreach ($items as $item)
 							<tr>
 								<td>{{ $item->name }}</td>
+								<td>{{ $item->description }}</td>
+								<td>{{ $item->count }}</td>
 								<td>{{ $item->slug }}</td>
 								<td>{{ format_date($item->created_at) }}</td>
 								<td>{!! action_row($selectedNavigation->url, $item->id, $item->name, ['edit', 'delete']) !!}</td>

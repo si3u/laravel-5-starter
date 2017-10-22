@@ -11,9 +11,8 @@
 |
 */
 
-
 Route::group(['middleware' => 'https'], function () {
-
+	
 	/*
 	|------------------------------------------
 	| Website
@@ -22,6 +21,7 @@ Route::group(['middleware' => 'https'], function () {
 	Route::group(['namespace' => 'Website'], function () {
 
 		Route::get('/', 'HomeController@index');
+		Route::get('/home', 'HomeController@index');
 
 		Route::get('/a-propos', 'AboutController@index');
 
@@ -38,6 +38,7 @@ Route::group(['middleware' => 'https'], function () {
 		Route::get('/faq', 'FAQController@index');
 		Route::post('/faq/question/{faq}/{type?}', 'FAQController@incrementClick');
 
+		//Cachées
 		Route::get('/pricing', 'PricingController@index');
 		Route::get('/changelog', 'PagesController@changelog');
 	});
@@ -56,12 +57,11 @@ Route::group(['middleware' => 'https'], function () {
 		Route::get('login', 'LoginController@showLoginForm')->name('login');
 		Route::post('login', 'LoginController@login');
 
-		Route::group(['middleware' => ['auth']], function () { // AJOUT, comme ça, sur que personne ne peut...
-			// registration
-			Route::get('register/{token}', 'RegisterController@showRegistrationForm')->name('register');
-			Route::post('register', 'RegisterController@register');
-			Route::get('register/confirm/{token}', 'RegisterController@confirmRegister');
-		});
+		// registration
+		Route::get('register/{token}', 'RegisterController@showRegistrationForm');//->name('register');
+		Route::post('register', 'RegisterController@register');
+		Route::get('register/confirm/{token}', 'RegisterController@confirmRegister');
+	
 		// password reset
 		Route::get('password/forgot', 'ForgotPasswordController@showLinkRequestForm')
 			->name('forgot-password');
@@ -191,6 +191,7 @@ Route::group(['middleware' => 'https'], function () {
 				});
 			});
 
+			//-// AJOUTS /////
 			// PARAMETERS
 			Route::group(['prefix' => 'settings/parameters', 'namespace' => 'Settings\Admin'], function () {
 				Route::get('/', 'ParametersController@index');
@@ -228,5 +229,5 @@ Route::group(['middleware' => 'https'], function () {
 		});
 
 	});
-
-});
+	
+}); // /HTTPS

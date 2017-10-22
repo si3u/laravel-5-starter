@@ -24,6 +24,11 @@
 	
             setDateTimePickerRange('#active_from', '#active_to');
         });
+		
+		
+		
+		
+		
 	</script>
 @endsection
 
@@ -50,7 +55,7 @@
 					
                     @include('admin.partials.button_create_dir', ['type' => 'realisations'])
 					
-					
+
 					<form method="POST" action='{{$selectedNavigation->url . (isset($item)? "/{$item->id}" : '')}}' 
 						  accept-charset="UTF-8" 
 						  enctype="multipart/form-data">
@@ -108,34 +113,23 @@
                                     </div>
                                 </div>
 
-                         {{--       
-<!--						 <div class="col col-md-4">
-                                    <div class="form-group {{ form_error_class('active_to', $errors) }}">
-                                        <label for="active_to">Jusqu'au (facultatif)</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="active_to" data-date-format="YYYY-MM-DD HH:mm:ss" name="active_to" value="{{ ($errors && $errors->any()? old('active_to') : (isset($item)? $item->active_to : '')) }}"/>
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                        </div>
-                                        {!! form_error_message('active_to', $errors) !!}
-                                    </div>
-                                </div>-->
-						 --}}
-
-<?php 
-	$infosKeywords = infos('keywords'); // les mots clé si $item est vide
-	$keywords = getKeywords(isset($item) ? $item->keywords : $infosKeywords);// with Helpers/keywords_helpers.php
-?>
-								
 								<div class="col col-md-10">
+									
+								<?php $keywords = getKeywords(isset($item) ? $item->keywords : infos('keywords')); ?>
+									
 									<label for="keywords">Mots Clé</label>
 									<div class="input-group{{ form_error_class('keywords', $errors) }}">
-										<span class="input-group-addon" title="nombres de mots (au chargement de la page)"><b>{{ countKeywords( isset($item) ? $item->keywords : $infosKeywords) }}</b></span>
+										<span class="input-group-addon" title="nombres de mots (au chargement de la page)"><b>{{ countKeywords($keywords) }}</b></span>
 										{!! form_select('keywords[]', $keywords, (old('keywords') ? old('keywords') : $keywords), ['class' => 'select2 select2tags input-group', 'multiple', 'required']) !!}
 										{!! form_error_message('keywords', $errors) !!}
 									</div>
 									<br/>
 									<br/>
 								</div>
+
+								
+								@include('admin.partials.buttons_tags_toggle', ['model' => 'Article'])
+					
 
                             </div>
 

@@ -88,6 +88,10 @@ class ComposerStaticInit0ed7e2bfd2de70cd5a9e756b7c08e3fb
             'Psr\\Cache\\' => 10,
             'PhpParser\\' => 10,
         ),
+        'O' => 
+        array (
+            'Overtrue\\Pinyin\\' => 16,
+        ),
         'M' => 
         array (
             'Monolog\\' => 8,
@@ -121,6 +125,7 @@ class ComposerStaticInit0ed7e2bfd2de70cd5a9e756b7c08e3fb
         ),
         'E' => 
         array (
+            'EstGroupe\\Taggable\\' => 19,
             'Egulias\\EmailValidator\\' => 23,
         ),
         'D' => 
@@ -275,6 +280,10 @@ class ComposerStaticInit0ed7e2bfd2de70cd5a9e756b7c08e3fb
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
+        'Overtrue\\Pinyin\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/overtrue/pinyin/src',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -326,6 +335,10 @@ class ComposerStaticInit0ed7e2bfd2de70cd5a9e756b7c08e3fb
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
+        ),
+        'EstGroupe\\Taggable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/estgroupe/laravel-taggable/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
@@ -424,6 +437,10 @@ class ComposerStaticInit0ed7e2bfd2de70cd5a9e756b7c08e3fb
         ),
         'B' => 
         array (
+            'Baum' => 
+            array (
+                0 => __DIR__ . '/..' . '/baum/baum/src',
+            ),
             'Barryvdh' => 
             array (
                 0 => __DIR__ . '/..' . '/barryvdh/reflection-docblock/src',
@@ -473,6 +490,7 @@ class ComposerStaticInit0ed7e2bfd2de70cd5a9e756b7c08e3fb
         'App\\Http\\Controllers\\Api\\ApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/ApiController.php',
         'App\\Http\\Controllers\\Api\\CreateDirectoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/CreateDirectoryController.php',
         'App\\Http\\Controllers\\Api\\NotificationsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/NotificationsController.php',
+        'App\\Http\\Controllers\\Api\\TagsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/TagsController.php',
         'App\\Http\\Controllers\\Api\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/UsersController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -601,6 +619,21 @@ class ComposerStaticInit0ed7e2bfd2de70cd5a9e756b7c08e3fb
         'Barryvdh\\Reflection\\DocBlock\\Tag\\VarTag' => __DIR__ . '/..' . '/barryvdh/reflection-docblock/src/Barryvdh/Reflection/DocBlock/Tag/VarTag.php',
         'Barryvdh\\Reflection\\DocBlock\\Tag\\VersionTag' => __DIR__ . '/..' . '/barryvdh/reflection-docblock/src/Barryvdh/Reflection/DocBlock/Tag/VersionTag.php',
         'Barryvdh\\Reflection\\DocBlock\\Type\\Collection' => __DIR__ . '/..' . '/barryvdh/reflection-docblock/src/Barryvdh/Reflection/DocBlock/Type/Collection.php',
+        'Baum\\Console\\BaumCommand' => __DIR__ . '/..' . '/baum/baum/src/Baum/Console/BaumCommand.php',
+        'Baum\\Console\\InstallCommand' => __DIR__ . '/..' . '/baum/baum/src/Baum/Console/InstallCommand.php',
+        'Baum\\Extensions\\Eloquent\\Collection' => __DIR__ . '/..' . '/baum/baum/src/Baum/Extensions/Eloquent/Collection.php',
+        'Baum\\Extensions\\Eloquent\\Model' => __DIR__ . '/..' . '/baum/baum/src/Baum/Extensions/Eloquent/Model.php',
+        'Baum\\Extensions\\Query\\Builder' => __DIR__ . '/..' . '/baum/baum/src/Baum/Extensions/Query/Builder.php',
+        'Baum\\Generators\\Generator' => __DIR__ . '/..' . '/baum/baum/src/Baum/Generators/Generator.php',
+        'Baum\\Generators\\MigrationGenerator' => __DIR__ . '/..' . '/baum/baum/src/Baum/Generators/MigrationGenerator.php',
+        'Baum\\Generators\\ModelGenerator' => __DIR__ . '/..' . '/baum/baum/src/Baum/Generators/ModelGenerator.php',
+        'Baum\\Move' => __DIR__ . '/..' . '/baum/baum/src/Baum/Move.php',
+        'Baum\\MoveNotPossibleException' => __DIR__ . '/..' . '/baum/baum/src/Baum/MoveNotPossibleException.php',
+        'Baum\\Node' => __DIR__ . '/..' . '/baum/baum/src/Baum/Node.php',
+        'Baum\\Providers\\BaumServiceProvider' => __DIR__ . '/..' . '/baum/baum/src/Baum/Providers/BaumServiceProvider.php',
+        'Baum\\SetBuilder' => __DIR__ . '/..' . '/baum/baum/src/Baum/SetBuilder.php',
+        'Baum\\SetMapper' => __DIR__ . '/..' . '/baum/baum/src/Baum/SetMapper.php',
+        'Baum\\SetValidator' => __DIR__ . '/..' . '/baum/baum/src/Baum/SetValidator.php',
         'Bpocallaghan\\Alert\\Alert' => __DIR__ . '/..' . '/bpocallaghan/alert/src/Alert.php',
         'Bpocallaghan\\Alert\\AlertServiceProvider' => __DIR__ . '/..' . '/bpocallaghan/alert/src/AlertServiceProvider.php',
         'Bpocallaghan\\Alert\\Facades\\Alert' => __DIR__ . '/..' . '/bpocallaghan/alert/src/Facades/Alert.php',
@@ -670,7 +703,7 @@ class ComposerStaticInit0ed7e2bfd2de70cd5a9e756b7c08e3fb
         'CreateSubscriptionPlanFeaturesTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_04_175120_create_subscription_plan_features_table.php',
         'CreateSubscriptionPlansTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_04_175040_create_subscription_plans_table.php',
         'CreateSuburbsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_20_124120_create_suburbs_table.php',
-        'CreateTagsTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_05_143321_create_tags_table.php',
+        'CreateTagsTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_09_154236_create_tags_table.php',
         'CreateTestimonialsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_20_114920_create_testimonials_table.php',
         'CreateUserInvitesTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_18_175402_create_user_invites_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
@@ -807,6 +840,16 @@ class ComposerStaticInit0ed7e2bfd2de70cd5a9e756b7c08e3fb
         'Egulias\\EmailValidator\\Warning\\QuotedString' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/QuotedString.php',
         'Egulias\\EmailValidator\\Warning\\TLD' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/TLD.php',
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/Warning.php',
+        'EstGroupe\\Taggable\\Contracts\\TaggableContract' => __DIR__ . '/..' . '/estgroupe/laravel-taggable/src/Contracts/TaggableContract.php',
+        'EstGroupe\\Taggable\\Contracts\\TaggingUtility' => __DIR__ . '/..' . '/estgroupe/laravel-taggable/src/Contracts/TaggingUtility.php',
+        'EstGroupe\\Taggable\\Events\\TagAdded' => __DIR__ . '/..' . '/estgroupe/laravel-taggable/src/Events/TagAdded.php',
+        'EstGroupe\\Taggable\\Events\\TagRemoved' => __DIR__ . '/..' . '/estgroupe/laravel-taggable/src/Events/TagRemoved.php',
+        'EstGroupe\\Taggable\\Model\\Tag' => __DIR__ . '/..' . '/estgroupe/laravel-taggable/src/Model/Tag.php',
+        'EstGroupe\\Taggable\\Model\\Tagged' => __DIR__ . '/..' . '/estgroupe/laravel-taggable/src/Model/Tagged.php',
+        'EstGroupe\\Taggable\\Providers\\LumenTaggingServiceProvider' => __DIR__ . '/..' . '/estgroupe/laravel-taggable/src/Providers/LumenTaggingServiceProvider.php',
+        'EstGroupe\\Taggable\\Providers\\TaggingServiceProvider' => __DIR__ . '/..' . '/estgroupe/laravel-taggable/src/Providers/TaggingServiceProvider.php',
+        'EstGroupe\\Taggable\\Taggable' => __DIR__ . '/..' . '/estgroupe/laravel-taggable/src/Taggable.php',
+        'EstGroupe\\Taggable\\Util' => __DIR__ . '/..' . '/estgroupe/laravel-taggable/src/Util.php',
         'Faker\\Calculator\\Iban' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Iban.php',
         'Faker\\Calculator\\Inn' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Inn.php',
         'Faker\\Calculator\\Luhn' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Luhn.php',
@@ -8733,6 +8776,11 @@ class ComposerStaticInit0ed7e2bfd2de70cd5a9e756b7c08e3fb
         'MrClay\\Cli\\Arg' => __DIR__ . '/..' . '/mrclay/minify/min/lib/MrClay/Cli/Arg.php',
         'NavigationAdminTableSeeder' => __DIR__ . '/../..' . '/database/seeds/NavigationAdminTableSeeder.php',
         'NavigationWebsiteTableSeeder' => __DIR__ . '/../..' . '/database/seeds/NavigationWebsiteTableSeeder.php',
+        'Overtrue\\Pinyin\\DictLoaderInterface' => __DIR__ . '/..' . '/overtrue/pinyin/src/DictLoaderInterface.php',
+        'Overtrue\\Pinyin\\FileDictLoader' => __DIR__ . '/..' . '/overtrue/pinyin/src/FileDictLoader.php',
+        'Overtrue\\Pinyin\\GeneratorFileDictLoader' => __DIR__ . '/..' . '/overtrue/pinyin/src/GeneratorFileDictLoader.php',
+        'Overtrue\\Pinyin\\MemoryFileDictLoader' => __DIR__ . '/..' . '/overtrue/pinyin/src/MemoryFileDictLoader.php',
+        'Overtrue\\Pinyin\\Pinyin' => __DIR__ . '/..' . '/overtrue/pinyin/src/Pinyin.php',
         'ParametersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ParametersTableSeeder.php',
         'Parsedown' => __DIR__ . '/..' . '/erusev/parsedown/Parsedown.php',
         'PhpParser\\Autoloader' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Autoloader.php',

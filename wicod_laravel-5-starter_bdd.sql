@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Ven 13 Octobre 2017 à 11:35
+-- Généré le :  Dim 22 Octobre 2017 à 13:51
 -- Version du serveur :  10.1.26-MariaDB-0+deb9u1
 -- Version de PHP :  7.0.19-1
 
@@ -32,6 +32,7 @@ CREATE TABLE `actus` (
   `content` longtext NOT NULL,
   `slug` varchar(200) NOT NULL,
   `summary` varchar(255) NOT NULL,
+  `is_tagged` enum('no','yes') NOT NULL DEFAULT 'no',
   `active_from` datetime NOT NULL,
   `active_to` datetime DEFAULT NULL,
   `facebook_shares` int(11) NOT NULL,
@@ -59,6 +60,7 @@ CREATE TABLE `articles` (
   `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `keywords` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_tagged` enum('no','yes') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
   `active_from` timestamp NULL DEFAULT NULL,
   `active_to` timestamp NULL DEFAULT NULL,
   `category_id` int(11) NOT NULL,
@@ -348,7 +350,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (25, '2017_07_08_094112_create_faq_categories_table', 1),
 (26, '2017_07_08_102625_create_faqs_table', 1),
 (27, '2017_07_10_152224_create_article_categories_table', 1),
-(28, '2017_07_10_165218_create_articles_table', 1);
+(28, '2017_07_10_165218_create_articles_table', 1),
+(29, '2016_05_09_154236_create_tags_table', 2);
 
 -- --------------------------------------------------------
 
@@ -413,7 +416,7 @@ INSERT INTO `navigation_admin` (`id`, `title`, `description`, `slug`, `url`, `ic
 (25, 'Changelogs', '', 'changelogs', '/admin/settings/website/changelogs', 'file-text-o', '', '', '', '', '', '', 2, 0, 22, 22, '2017-09-20 08:53:54', '2017-09-20 08:53:54', NULL, 0, 0, NULL),
 (26, 'Navigation', '', 'navigation', '/admin/settings/admin/navigation', 'align-center', 'Help', '', '', '', '', '', 1, 0, 23, 23, '2017-09-20 08:53:54', '2017-09-20 08:53:54', NULL, 0, 0, NULL),
 (27, 'Administrateurs', 'Administrateurs', 'users', '/admin/settings/admin/users', 'users', NULL, NULL, NULL, NULL, NULL, NULL, 2, 0, 23, 23, '2017-09-20 08:53:54', '2017-09-21 09:10:43', NULL, 0, 1, NULL),
-(28, 'Invitations', '', 'invites', '/admin/settings/admin/users/invites', '', '', '', '', '', '', '', 1, 1, 27, 27, '2017-09-20 08:53:54', '2017-09-20 08:53:54', NULL, 0, 0, NULL),
+(28, 'Admin Invites', '', 'invites', '/admin/settings/admin/users/invites', '', '', '', '', '', '', '', 1, 1, 27, 27, '2017-09-20 08:53:54', '2017-09-20 08:53:54', NULL, 0, 0, NULL),
 (29, 'Profil', 'Modifier votre Profil', 'profile', '/admin/profile', 'user', NULL, NULL, NULL, NULL, NULL, NULL, 2, 0, 0, 0, '2017-09-20 08:53:54', '2017-10-07 08:11:37', NULL, 0, 1, NULL),
 (30, 'Ordre de Navigation', 'Ordre de Navigation', 'order', '/admin/settings/admin/navigation/order', 'list-ol', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 26, 26, '2017-09-20 08:53:54', '2017-09-21 09:30:04', NULL, 0, 1, NULL),
 (31, 'Ordre de Navigation', 'Ordre de Navigation Website', 'order', '/admin/settings/website/navigation/order', 'list-ol', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 24, 24, '2017-09-20 08:53:54', '2017-10-07 08:07:00', NULL, 0, 1, NULL),
@@ -862,15 +865,33 @@ CREATE TABLE `suburbs` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `taggables`
+--
+
+CREATE TABLE `taggables` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `taggable_id` int(10) UNSIGNED NOT NULL,
+  `taggable_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tag_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `tags`
 --
 
 CREATE TABLE `tags` (
   `id` int(10) UNSIGNED NOT NULL,
+  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `suggest` tinyint(1) NOT NULL DEFAULT '0',
+  `count` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `parent_id` int(11) DEFAULT NULL,
+  `lft` int(11) DEFAULT NULL,
+  `rgt` int(11) DEFAULT NULL,
+  `depth` int(11) DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_by` int(10) UNSIGNED NOT NULL,
   `updated_by` int(10) UNSIGNED DEFAULT NULL,
@@ -1163,11 +1184,21 @@ ALTER TABLE `suburbs`
   ADD UNIQUE KEY `suburbs_id_unique` (`id`);
 
 --
+-- Index pour la table `taggables`
+--
+ALTER TABLE `taggables`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `taggables_taggable_id_index` (`taggable_id`),
+  ADD KEY `taggables_taggable_type_index` (`taggable_type`),
+  ADD KEY `taggables_tag_id_index` (`tag_id`);
+
+--
 -- Index pour la table `tags`
 --
 ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `tags_id_unique` (`id`);
+  ADD UNIQUE KEY `tags_slug_unique` (`slug`),
+  ADD UNIQUE KEY `tags_name_unique` (`name`);
 
 --
 -- Index pour la table `testimonials`
@@ -1265,7 +1296,7 @@ ALTER TABLE `log_logins`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT pour la table `navigation_admin`
 --
@@ -1322,6 +1353,11 @@ ALTER TABLE `subscription_plan_feature_pivot`
 ALTER TABLE `suburbs`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT pour la table `taggables`
+--
+ALTER TABLE `taggables`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT pour la table `tags`
 --
 ALTER TABLE `tags`
@@ -1341,6 +1377,16 @@ ALTER TABLE `users`
 --
 ALTER TABLE `user_invites`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `taggables`
+--
+ALTER TABLE `taggables`
+  ADD CONSTRAINT `taggables_tag_id_foreign` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

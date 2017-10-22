@@ -19,11 +19,11 @@ php artisan package:discover
 ```
 
 Créer une base de données pour le projet.
-Ensuite remplir correctement le .env, régénérer la clé : 
+Ensuite remplir correctement le .env et régénérer la clé : 
 ```bash
 php artisan key:generate
 ```
-Après cela, la base de données (ou utiliser celle fournie, déjà traduite) :
+Après cela, migration de la base de données (ou utiliser celle fournie, déjà traduite) :
 ```bash
 php artisan migrate
 ```

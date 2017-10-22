@@ -1,6 +1,7 @@
 
 @section('scripts')
     @parent
+	
     <script type="text/javascript" charset="utf-8">
         $(function ()
         {
@@ -13,7 +14,7 @@
 				if(lenghtTitle >= 4 && alert_btnCND == false) {
 					$('#btn-create-new-dir').fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(400); /* clignotements */
 					alert_btnCND = true;
-					notify('Aide', 'Vous pouvez désormais créer un dossier pour<br> accueillir les images de cette {{ str_singular($selectedNavigation->title) }}<br><br><b>Une fois votre titre bien défini,<br>cliquez sur le bouton venant de s\'afficher.</b><br><br><h4>Un dossier <b>{{ isset($id) ? $id : "X" }}_VOTRE_TITRE</b> sera accessible dans le dossier <b>{{ ucfirst($type) }}</b>.</h4><br>Depuis l\'icône <i class="fa fa-picture-o"></i> dans la barre d\'outils<br> de l\'éditeur du contenu<br>Puis -> parcourir le serveur.<br>', 'info');
+					notify('Aide', 'Vous pouvez désormais créer un dossier pour<br> accueillir les images de cette {{ str_singular($selectedNavigation->title) }}<br><br><b>Une fois votre titre bien défini,<br>cliquez sur le bouton venant de s\'afficher.</b><br><br><h4>Un dossier <b>{{ isset($id) ? $id : "X" }}_VOTRE_TITRE</b> sera accessible dans le dossier <b>{{ ucfirst($type) }}</b>.</h4><br>Depuis l\'icône <i class="fa fa-picture-o"></i> dans la barre d\'outils<br> de l\'éditeur du contenu<br>Puis -> parcourir le serveur.<br>', 'info', 0);
 				}
 			});
 			

@@ -11,14 +11,15 @@
         "bpocallaghan/notify": "2.1.1",
         "bpocallaghan/sluggable": "^1.2.0",
         "bpocallaghan/titan": "0.2.7",
+        "estgroupe/laravel-taggable": "5.1.1",
         "google/recaptcha": "^1.1",
+        "htmlmin/htmlmin": "^5.0.0",
         "intervention/image": "^2.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "spatie/laravel-analytics": "^3.1.0",
         "unisharp/laravel-filemanager": "1.8.0",
-        "yajra/laravel-datatables-oracle": "^8.0.3",
-	    "htmlmin/htmlmin": "^5.0.0"
+        "yajra/laravel-datatables-oracle": "^8.0.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -10,9 +10,9 @@ use App\Http\Controllers\Admin\AdminController;
 
 use Image;
 
-// DES DOUBLES NOTIFICATIONS SONT POSSIBLES !!!
+// DES MULTIPLES NOTIFICATIONS SONT POSSIBLES !!!
 // grace aux modif dans :
-//		une boucle pour chacun appelant $.notify() (js) dans resources/views/admin/vendor/notify/notify.blade.php
+//		une boucle pour chacun, appelant $.notify() (js) dans resources/views/admin/vendor/notify/notify.blade.php
 //		changer les ->flash()  par des  ->push()  dans /vendor/bpocallaghan/notify/src/Notify.php
 // Voir /resources/assets/admin/js/titan/notify.js (appelée par la vue)
 		

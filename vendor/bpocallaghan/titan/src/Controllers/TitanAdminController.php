@@ -228,7 +228,8 @@ class TitanAdminController extends TitanController
         $this->urlParentNavs = $nav->getUrlParentsAndYou();
 
         // name of resource - used on page to, eg, Add new 'resource', enter title of 'resource'
-        $this->resource = str_singular($nav->title); // TODO: - maybe add a 'resource' field on the table
+       // $this->resource = str_singular($nav->title); // TODO: - maybe add a 'resource' field on the table
+        $this->resource = $nav->title; // Pour pas enlever des "s" n'importe ou...
 
         $mode = $this->checkIfReservedWordInUrl();
 

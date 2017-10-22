@@ -57,7 +57,11 @@ function countKeywords($words)
 {
 	if(is_array($words))
 	{
+		foreach($words as $key => $word)
+		{
+			if($key != $word) { unset($words[$key]); } // ceux non sélectionnés
+		}
 		return count($words);
 	}
-	return isset($words) ? (str_word_count($words) -1) : 0; // -1 pour l'espace du MV Bois
+	return isset($words) ? (str_word_count($words)) : 0;
 }

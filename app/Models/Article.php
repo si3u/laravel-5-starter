@@ -10,11 +10,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Titan\Models\Traits\ActiveTrait;
 
 
-use App\Models\LogAdminActivity as Log;
+//Laravel-Taggable - https://github.com/summerblue/laravel-taggable
+use EstGroupe\Taggable\Taggable;
+use \EstGroupe\Taggable\Model\Tag as Tag; // pour getAllTags()
 
 class Article extends TitanCMSModel
 {
-    use SoftDeletes, HasSlug, ActiveTrait;
+    use SoftDeletes, HasSlug, ActiveTrait, Taggable;
 
     protected $table = 'articles';
 
@@ -32,6 +34,8 @@ class Article extends TitanCMSModel
     ];
 
 	
+	
+	// AJOUT pour création SLUG
 	/**
 	 * Generate slug with title
 	 * @return type
@@ -41,6 +45,7 @@ class Article extends TitanCMSModel
         return SlugOptions::create()->generateSlugFrom('title');
     }
 
+	
 	
 	
     /**
@@ -57,6 +62,13 @@ class Article extends TitanCMSModel
         return substr(strip_tags($this->attributes['content']), 0, 200);
     }
 	
+//	public static function setSummary($request)
+//	{
+//		if ( empty($request->summary) ) {
+//			$limit = ( strlen(strip_tags($request->input('content'))) > 200 ) ? 200 : strlen(strip_tags($request->input('content')));
+//			$request->merge(['summary' => substr(strip_tags($request->input('content')), 0, 200)]);
+//		}
+//	}
 
     /**
      * Get the createdBy
@@ -73,6 +85,16 @@ class Article extends TitanCMSModel
     {
         return $this->belongsTo(ArticleCategory::class, 'category_id', 'id');
     }
+	
+	
+    /**
+     * Get the Tags
+     */
+    public static function getAllTags()
+    {
+		return Tag::where('deleted_by', 0)->get();
+    }
+
 	
 	
     /**

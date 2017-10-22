@@ -63,7 +63,7 @@ trait CRUDNotify
 			unset($inputs['password']);
 		}
 		
-		$inputs = fancyboxIntoContent($inputs); // OK view_helper.php
+		$inputs = fancyboxIntoContent($inputs); // view_helper.php
 
 		unset($inputs['_token'], $inputs['_method']); // TODO voir pour enlever ça et se servir de   "_id"    encore...
 	
@@ -89,6 +89,11 @@ trait CRUDNotify
      */
     public function deleteEntry($model, Request $request)
     {
+		// /!\ Pour pouvoir supprimer les entrées contenant des Tags (Laravel 5.5.14)
+		// Il a fallu changer   ->lists()  par   ->pluck()   dans
+		//   /estgroupe/laravel-taggable/src/Taggable.php   lignes: 105 et 116   @methods tagNames() et tagSlugs()
+		
+		
         // check if ids match (cant type random ids)
         if ($request->get('_id') == $model->id)
 		{

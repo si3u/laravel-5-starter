@@ -19,7 +19,7 @@ class TagsController extends AdminController
 	{
 		save_resource_url();
 
-		return $this->view('tags.index')->with('items', Tag::all());
+		return $this->view('tags.index')->withItems(Tag::all());
 	}
 
 	/**
@@ -42,7 +42,9 @@ class TagsController extends AdminController
 	{
 		$this->validate($request, Tag::$rules, Tag::$messages);
 
-        $row = $this->createEntry(Tag::class, $request->only('name'));
+		$request->merge(['slug' => str_slug($request->name)]);
+
+        $row = $this->createEntry(Tag::class, $request->all());
 
         return redirect_to_resource();
 	}
@@ -55,7 +57,7 @@ class TagsController extends AdminController
 	 */
 	public function show(Tag $tag)
 	{
-		return $this->view('tags.show')->with('item', $tag);
+		return $this->view('tags.show')->withItem($tag);
 	}
 
 	/**
@@ -66,7 +68,7 @@ class TagsController extends AdminController
      */
     public function edit(Tag $tag)
 	{
-		return $this->view('tags.add_edit')->with('item', $tag);
+		return $this->view('tags.add_edit')->withItem($tag);
 	}
 
 	/**
@@ -80,7 +82,9 @@ class TagsController extends AdminController
 	{
 		$this->validate($request, Tag::$rules, Tag::$messages);
 
-        $this->updateEntry($tag, $request->only('name'));
+		$request->merge(['slug' => str_slug($request->name)]);
+		
+        $this->updateEntry($tag, $request->all());
 
         return redirect_to_resource();
 	}

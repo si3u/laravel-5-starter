@@ -12,5 +12,6 @@ return array(
     'Google_Service_' => array($vendorDir . '/google/apiclient-services/src'),
     'Google_' => array($vendorDir . '/google/apiclient/src'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
+    'Baum' => array($vendorDir . '/baum/baum/src'),
     'Barryvdh' => array($vendorDir . '/barryvdh/reflection-docblock/src'),
 );

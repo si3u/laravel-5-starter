@@ -11,7 +11,7 @@ $(function ()
  * @param content
  * @param level
  */
-function notify(title, content, level)
+function notify(title, content, level, timeout)
 {
     $.notify({
         title: title,
@@ -19,6 +19,7 @@ function notify(title, content, level)
         level: level ? level : 'success',
         icon: "fa fa-thumbs-o-up bounce animated",
         iconSmall: "fa fa-thumbs-o-up bounce animated",
+        timeout: (timeout != undefined) ? timeout : 5000
     });
 }
 
@@ -27,7 +28,7 @@ function notify(title, content, level)
  * @param title
  * @param content
  */
-function notifyError(title, content)
+function notifyError(title, content, timeout)
 {
     $.notify({
         title: title,
@@ -35,6 +36,7 @@ function notifyError(title, content)
         level: 'danger',
         icon: "fa fa-thumbs-o-down shake animated",
         iconSmall: "fa fa-thumbs-o-down spin animated",
+        timeout: (timeout != undefined) ? timeout : 8000
     });
 }
 
@@ -88,7 +90,7 @@ $.notify = function (settings)
     }
 
     // play sound
-    document.getElementById('notify-sound-' + soundFile).play()
+    document.getElementById('notify-sound-' + soundFile).play();
 
     // html markup
     var html = '<div id="' + notifyId + '"';
@@ -115,11 +117,11 @@ $.notify = function (settings)
         $("#" + notifyId).css("top", notifyHeight);
 
         // update all of their positions
-        updateNotifyPositions(600);
+        updateNotifyPositions(300);
     }
 
     // remove on timeout
-    if (settings.timeout != undefined) {
+    if (settings.timeout !== undefined && settings.timeout !== 0) {
         setTimeout(function ()
         {
             removeNotify($("#" + notifyId));
@@ -145,7 +147,7 @@ $.notify = function (settings)
         setTimeout(function ()
         {
             ele.remove();
-            updateNotifyPositions(600)
+            updateNotifyPositions(300)
         }, 400);
     }
 

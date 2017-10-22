@@ -7,7 +7,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">
                         <span><i class="fa fa-table"></i></span>
-                        <span>Liste des Régions</span>
+                        <span>Liste des Départements</span>
                     </h3>
                 </div>
 

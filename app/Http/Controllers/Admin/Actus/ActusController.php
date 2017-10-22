@@ -51,6 +51,8 @@ class ActusController extends AdminController
 
         $this->createEntry(Actus::class, $request->all());
 
+		notify()->info("Info", "Vous pouvez désormais attacher des &Eacute;tiquettes (Tags) à cette nouvelle Actualité.");
+
         return redirect_to_resource();
 	}
 
@@ -75,7 +77,9 @@ class ActusController extends AdminController
 	{
 		save_resource_url();
 
-		return $this->view('actus.create_edit')->with('item', $actus);
+		return $this->view('actus.create_edit')
+					->withTags(Actus::getAllTags())
+					->withItem($actus);
 	}
 
 	/**

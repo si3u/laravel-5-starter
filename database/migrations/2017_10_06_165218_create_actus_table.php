@@ -17,6 +17,7 @@ class CreateActusTable extends Migration
             $table->string('title');
             $table->string('summary')->nullable();
             $table->string('keywords')->nullable();
+			$table->enum('is_tagged', array('yes', 'no'))->default('no'); // ajout laravel-taggable
             $table->text('content');
             $table->string('slug');
             $table->timestamp('active_from')->nullable(); // aka posted_at (default now)

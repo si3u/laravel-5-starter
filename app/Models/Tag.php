@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Titan\Models\TitanCMSModel;
 use Bpocallaghan\Sluggable\HasSlug;
-use Illuminate\Database\Eloquent\SoftDeletes;
+//use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tag extends TitanCMSModel
 {
-    use SoftDeletes, HasSlug;
+    use HasSlug;//, SoftDeletes;
 
     protected $table = 'tags';
 
@@ -18,6 +18,6 @@ class Tag extends TitanCMSModel
      * Validation rules for this model
      */
     static public $rules = [
-        'name' => 'required|min:2:max:255',
+        'name' => 'required|min:2:max:191',
     ];
 }

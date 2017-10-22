@@ -9,9 +9,14 @@ use Bpocallaghan\Sluggable\SlugOptions;// AJOUT pour création SLUG auto
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Titan\Models\Traits\ActiveTrait;
 
+
+//Laravel-Taggable - https://github.com/summerblue/laravel-taggable
+use EstGroupe\Taggable\Taggable;
+use \EstGroupe\Taggable\Model\Tag as Tag; // pour getAllTags()
+
 class Actus extends TitanCMSModel
 {
-    use SoftDeletes, HasSlug, ActiveTrait;
+    use SoftDeletes, HasSlug, ActiveTrait, Taggable;
 
     protected $table = 'actus';
 
@@ -28,6 +33,8 @@ class Actus extends TitanCMSModel
     ];
 
 	
+	
+	// Création SLUG
 	/**
 	 * Generate slug with title
 	 * @return type
@@ -52,10 +59,6 @@ class Actus extends TitanCMSModel
         return substr(strip_tags($this->attributes['content']), 0, 200);
     }
 	
-	/**
-	 * Construit la description automatiquement avec le contenu si elle est vide
-	 * @param Request $request
-	 */
 	public static function setSummary($request)
 	{
 		if ( empty($request->summary) ) {
@@ -81,4 +84,13 @@ class Actus extends TitanCMSModel
         return $this->onlyTrashed()->where('deleted_by', user()->id)->get();
     } 
 
+    /**
+     * Get the Tags
+     */
+    public static function getAllTags()
+    {
+		return Tag::where('deleted_by', 0)->get();
+    }
+
+	
 }

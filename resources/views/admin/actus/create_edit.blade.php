@@ -102,6 +102,10 @@
                                         {!! form_error_message('active_to', $errors) !!}
                                     </div>
                                 </div> 
+								
+								
+								@include('admin.partials.buttons_tags_toggle', ['model' => 'Actus'])
+					
 
                             </div>
 

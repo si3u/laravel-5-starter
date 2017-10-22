@@ -20,11 +20,9 @@ class ArticlesController extends AdminController
 	{
 		save_resource_url();
 		
-        $items = Article::with('category')->get();
-		
-        $trash = $article->getDeleted();
-
-        return $this->view('blog.index', compact('items', 'trash'));
+        return $this->view('blog.index')
+					->withItems(Article::with('category')->get())
+					->withTrash($article->getDeleted());
 	}
 
 	/**
@@ -55,6 +53,8 @@ class ArticlesController extends AdminController
 		
         $this->createEntry(Article::class, $request->all());
 
+		notify()->info("Info", "Vous pouvez désormais attacher des &Eacute;tiquettes (Tags) à cette nouvelle Réalisation.");
+		
         return redirect_to_resource();
 	}
 
@@ -66,7 +66,8 @@ class ArticlesController extends AdminController
 	 */
 	public function show(Article $article)
 	{
-		return $this->view('blog.show')->with('item', $article);
+		return $this->view('blog.show')
+					->withItem($article);
 	}
 
 	/**
@@ -79,13 +80,14 @@ class ArticlesController extends AdminController
 	{
 		save_resource_url();
 		
-        $menuOthersItems = Article::with('category')->select( 'id', 'title', 'category_id')
-			->where('id', '!=', $article->id)
-			->orderBy('category_id')->get();
+        $menuOthersItems = Article::with('category') ->select( 'id', 'title', 'category_id')
+													->where('id', '!=', $article->id)
+													->orderBy('category_id')->get();
 
 		return $this->view('blog.create_edit')
 					->withCategories(ArticleCategory::getAllList())
 					->withItem($article)
+					->withTags(Article::getAllTags())
 					->withMenuOthersItems($menuOthersItems);
 	}
 

@@ -7,7 +7,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">
                         <span><i class="fa fa-eye"></i></span>
-                        <span>Régions - {{ $item->title }}</span>
+                        <span>Département - {{ $item->title }}</span>
                     </h3>
                 </div>
 

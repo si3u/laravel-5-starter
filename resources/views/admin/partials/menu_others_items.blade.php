@@ -1,6 +1,4 @@
 
-{{-- Sert à naviguer facilement depuis l'édition des Actus ou Réalisations --}}
-
 @if(isset($menuOthersItems))
 
 @section('scripts')
@@ -22,6 +20,10 @@
 	
 		<option selected="true" class="text-capitalize">
 			{{ strtoupper("Navigation - Choisir une autre ").ucfirst(str_singular($selectedNavigation->title) )}}
+		</option>
+		
+		<option class="text-capitalize" value="{{ $selectedNavigation->url.'/create' }}">
+			{{ "CR&Eacute;ER : ".ucfirst(str_singular($selectedNavigation->title) )}}
 		</option>
 	
 	@foreach($menuOthersItems as $item)  

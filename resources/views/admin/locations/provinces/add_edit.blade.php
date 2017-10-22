@@ -7,7 +7,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">
                         <span><i class="fa fa-edit"></i></span>
-                        <span>{{ isset($item)? 'Modifier ' . $item->title : 'Entrer une nouvelle région' }}</span>
+                        <span>{{ isset($item)? 'Modifier ' . $item->title : 'Entrer une nouveau département' }}</span>
                     </h3>
                 </div>
 
@@ -53,6 +53,6 @@
         </div>
     </div>
 
-	@include('admin.locations.map', ['marker' => true])
+	@include('admin.locations.map', ['marker' =>  true] )
 
 @endsection
