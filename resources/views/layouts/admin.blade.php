@@ -51,8 +51,14 @@
         </div>
 
         @include('notify::notify')
+		
         @include('admin.partials.modals')
 
+		@if(user()->sound == 1)
+		<audio id='notify-sound-success' src='/sounds/success.mp3'></audio>
+		<audio id='notify-sound-warning' src='/sounds/warning.mp3'></audio>
+		@endif
+		
         <script type="text/javascript" charset="utf-8" src="/js/admin.js"></script>
 		
         @yield('scripts')

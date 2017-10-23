@@ -22,7 +22,6 @@ class CreateActusTable extends Migration
             $table->string('slug');
             $table->timestamp('active_from')->nullable(); // aka posted_at (default now)
             $table->timestamp('active_to')->nullable(); 
-         //   $table->integer('category_id');
             $table->bigInteger('total_views')->unsigned()->default(0);
             $table->bigInteger('facebook_shares')->unsigned()->default(0);
             $table->bigInteger('twitter_shares')->unsigned()->default(0);

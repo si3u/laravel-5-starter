@@ -1,6 +1,6 @@
 <?php
 
-use App\Parameters;
+use App\Models\Parameters;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
@@ -16,8 +16,6 @@ class ParametersTableSeeder extends Seeder
         Parameters::create([
             'params'    => 'keywords',
             'value'     => '["mot","mots","deux mots"]',
-            //'created_at' => Carbon::now(),
-            //'updated_at' => Carbon::now(),
         ]);
 
         //-------------------------------------------------

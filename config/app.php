@@ -203,11 +203,15 @@ return [
 		 */
 		Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
 
-	/**
-	* HTMLMin - https://github.com/HTMLMin/Laravel-HTMLMin
-	*/
-	HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
+		/**
+		* HTMLMin - https://github.com/HTMLMin/Laravel-HTMLMin
+		*/
+		HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
 		
+		/**
+		 * Taggable - https://github.com/summerblue/laravel-taggable
+		 */
+		EstGroupe\Taggable\Providers\TaggingServiceProvider::class,
     ],
 
     /*

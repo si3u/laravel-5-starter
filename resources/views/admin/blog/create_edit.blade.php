@@ -55,6 +55,9 @@
 					
                     @include('admin.partials.button_create_dir', ['type' => 'realisations'])
 					
+					
+					@include('admin.partials.dropzone.modal', ['type' => 'Articles'])
+					
 
 					<form method="POST" action='{{$selectedNavigation->url . (isset($item)? "/{$item->id}" : '')}}' 
 						  accept-charset="UTF-8" 

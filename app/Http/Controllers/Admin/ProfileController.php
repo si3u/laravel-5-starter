@@ -48,6 +48,7 @@ class ProfileController extends AdminController
             'firstname',
             'lastname',
 			'gender',
+			'sound',
             'cellphone',
             'telephone',
             'born_at',

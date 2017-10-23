@@ -1,3 +1,30 @@
+
+@section('scripts')
+	@parent
+<script>
+	    /* SITEMAP BUILDER */
+		function sitemapBuilder(button)
+		{
+			button.fadeOut();
+			
+			$.ajax( { 
+				url: "/api/sitemap-builder",
+				
+				success: function(res){
+					if(res[0] == 'success') {
+						notify('Succès', res[1], 'success');
+					} else {
+						notifyError('Erreur', res[1]);
+					}
+				},
+				error: function(){
+					notifyError('Erreur', "Une erreur est survenue à la création du Sitemap.");
+				}
+			});
+		}
+</script>
+@endsection
+
 <header class="main-header">
     <a href="{{ url('/admin') }}" class="logo">
         <span class="logo-mini"><b>{{ config('app.name-short') }}</b><!--<img src="/images/logo-mini.png" style="width: 100%;"/>--></span>
@@ -25,7 +52,15 @@
                 @endif
 
 				<li>
-					<a href="/" target="_blank">Site &nbsp;<i class="fa fa-external-link"></i></a>
+					<a href="#" onclick="sitemapBuilder($(this))" title="Construire le Sitemap pour le référencement des pages du site">
+						Sitemap &nbsp;<i class="fa fa-map-o"></i>
+					</a>
+				</li>
+
+				<li>
+					<a href="/" target="_blank" title="Ouvrir le site dans un nouvel onglet">
+						Site &nbsp;<i class="fa fa-eye"></i>
+					</a>
 				</li>
 				
                 <li class="dropdown messages-menu">

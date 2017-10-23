@@ -33,7 +33,11 @@
 		</div>
 
 		<div class="box-footer">
-			<small class="text-muted">Jusqu'a 100 mots ou 1000 caractères.<br>Ces mots clé alimenteront les listes déroulantes. Elles seront aussi utilisés pour l'accueil et pour pré-remplir ceux d'une nouvelle réalisation.</small>
+			<small class="text-muted">
+				Jusqu'a 100 mots ou 1000 caractères.
+				<br>Ces mots clé alimenteront les listes déroulantes. Elles seront aussi utilisés pour l'accueil et pour pré-remplir ceux d'une nouvelle réalisation.
+				<br>Pour en ajouter un, il suffit de l'écrire dans le champ et taper <em>Entrée</em> ou <em>Virgule</em> (<b>,</b>).
+			</small>
 		</div>
 	</form>
 

@@ -41,3 +41,5 @@ id,title,description,slug,url,icon,help_index_title,help_index_content,help_crea
 40,FAQ,FAQ,faqs,/admin/faqs,question,,,,,,,6,0,0,0,4,
 41,FAQ Questions,FAQ Questions,,/admin/faqs,question,,,,,,,2,0,40,40,4,
 42,Catégories,Catégories,categories,/admin/faqs/categories,cubes,,,,,,,1,0,40,40,4,
+43,Paramètres,Paramètres,parameters,/admin/settings/parameters,cog,,,,,,,4,0,21,21,4,
+44,Actualités,Actualités,actus,/admin/actus,cube,,,,,,,4,0,0,0,4,

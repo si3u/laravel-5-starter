@@ -56,11 +56,6 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('/interests-market', 'AnalyticsController@getInterestsMarket');
         Route::post('/interests-other', 'AnalyticsController@getInterestsOther');
        
-		// TESTS
-//        Route::get('/gender', 'AnalyticsController@getUsersGender');
-//        Route::get('/age', 'AnalyticsController@getUsersAge');
-//        Route::get('/positions', 'AnalyticsController@getUsersPositions');
-       // Route::get('/device-category', 'AnalyticsController@getDeviceCategory');
     });
 	
     // Create Directory for Actus & Articles
@@ -71,4 +66,7 @@ Route::group(['namespace' => 'Api'], function () {
 	
     // Toggle Tags
     Route::get('/toggle-tag/{model}/{item_id}/{tag_slug}', 'TagsController@toggleStatus');
+	
+    // Sitemap Builder
+    Route::get('/sitemap-builder', 'SitemapController@builder');
 });

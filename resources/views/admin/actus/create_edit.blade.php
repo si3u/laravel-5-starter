@@ -47,6 +47,9 @@
 					
                     @include('admin.partials.button_create_dir', ['type' => 'actus'])
 					
+					
+					@include('admin.partials.dropzone.modal', ['type' => 'Actus'])
+					
 
 					<form method="POST" 
 						  action='{{$selectedNavigation->url . (isset($item)? "/{$item->id}" : '')}}' 

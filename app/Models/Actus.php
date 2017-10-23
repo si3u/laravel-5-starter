@@ -5,7 +5,7 @@ namespace App\Models;
 use App\User;
 use Titan\Models\TitanCMSModel;
 use Bpocallaghan\Sluggable\HasSlug;
-use Bpocallaghan\Sluggable\SlugOptions;// AJOUT pour création SLUG auto
+use Bpocallaghan\Sluggable\SlugOptions;// AJOUT pour création SLUG STRING auto
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Titan\Models\Traits\ActiveTrait;
 
@@ -33,10 +33,8 @@ class Actus extends TitanCMSModel
     ];
 
 	
-	
-	// Création SLUG
 	/**
-	 * Generate slug with title
+	 * Generate slug string with title
 	 * @return type
 	 */
     protected function getSlugOptions()
@@ -59,13 +57,6 @@ class Actus extends TitanCMSModel
         return substr(strip_tags($this->attributes['content']), 0, 200);
     }
 	
-	public static function setSummary($request)
-	{
-		if ( empty($request->summary) ) {
-			$limit = ( strlen(strip_tags($request->input('content'))) > 200 ) ? 200 : strlen(strip_tags($request->input('content')));
-			$request->merge(['summary' => substr(strip_tags($request->input('content')), 0, $limit)]);
-		}
-	}
 
     /**
      * Get the createdBy

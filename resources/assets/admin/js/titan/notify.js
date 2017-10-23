@@ -1,8 +1,10 @@
 $(function ()
 {
     $("body").append("<div id='notify-container'></div>");
-    $("body").append("<audio id='notify-sound-info' src='/sounds/info.mp3'></audio>");
-    $("body").append("<audio id='notify-sound-danger' src='/sounds/danger.mp3'></audio>");
+	/*
+//    $("body").append("<audio id='notify-sound-success' src='/sounds/success.mp3'></audio>");
+//    $("body").append("<audio id='notify-sound-warning' src='/sounds/warning.mp3'></audio>");
+*/
 });
 
 /**
@@ -80,7 +82,7 @@ $.notify = function (settings)
     notifyCount = notifyCount + 1;
     var notifyId = "notify" + notifyCount;
 
-    // sound
+ /*   // sound
     var soundFile = settings.level;
     if (settings.level == 'success') {
         soundFile = 'info';
@@ -88,9 +90,15 @@ $.notify = function (settings)
     if (settings.level == 'warning') {
         soundFile = 'danger';
     }
+    document.getElementById('notify-sound-' + soundFile).play();
+*/
 
     // play sound
-    document.getElementById('notify-sound-' + soundFile).play();
+	var tag_sound = document.getElementById('notify-sound-' + settings.level);
+	if(tag_sound != undefined)
+	{
+		tag_sound.play();
+	}
 
     // html markup
     var html = '<div id="' + notifyId + '"';

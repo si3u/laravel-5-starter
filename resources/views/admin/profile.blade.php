@@ -93,7 +93,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Genre</label>
                                         <div class="inline-group">
@@ -108,6 +108,23 @@
                                         </div>
                                     </div>
                                 </div>
+								
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Sons Notifications</label>
+                                        <div class="inline-group">
+                                            <label class="radio" style="margin-top: 0px;">
+                                                <input type="radio" name="sound" value="1" {{ ($errors->any() && old('sound') == 1 ? 'checked="checked"' : user()->sound == 1 ? 'checked="checked"':'') }}>
+                                                <i></i>Activé
+                                            </label>
+                                            <label class="radio" style="margin-top: 0px;">
+                                                <input type="radio" name="sound" value="0" {{ ($errors->any() && old('sound') == 0 ? 'checked="checked"' : user()->sound == 0 ? 'checked="checked"':'') }}>
+                                                <i></i>Désactivé
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                                 <div class="col-md-6">
                                     <div class="form-group {{ form_error_class('born_at', $errors) }}">

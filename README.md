@@ -1,5 +1,5 @@
 # wicod/laravel-5-starter
-#### v0.0.4
+#### v0.0.5
 
 Laravel 5 starter en Français sur la base de <a href="https://github.com/bpocallaghan/laravel-admin-starter" target="_blank">bpo-callaghan/laravel-admin-starter</a>.
 
@@ -65,6 +65,7 @@ Pour pouvoir utiliser webpack.mix et faire la compression des assets, installer 
         unisharp/laravel-filemanager
         yajra/laravel-datatables-oracle
 	    htmlmin/htmlmin
+		estgroupe/laravel-taggable
 
         bpocallaghan/generators
         barryvdh/laravel-debugbar

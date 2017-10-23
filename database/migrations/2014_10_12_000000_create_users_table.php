@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('telephone', 50)->nullable();
             $table->string('image')->nullable();
             $table->string('gender', 10)->nullable();
+            $table->boolean('sound')->default(1);
             $table->date('born_at')->nullable();
             $table->string('password', 60)->nullable();
             $table->timestamp('password_updated_at')->nullable();

@@ -1,4 +1,7 @@
 
+{{-- FOR ARTICLES --}}
+
+
 @if(isset($menuOthersItems))
 
 @section('scripts')
@@ -19,7 +22,7 @@
 	<select class="select2 select2notags" name="goTo">
 	
 		<option selected="true" class="text-capitalize">
-			{{ strtoupper("Navigation - Choisir une autre ").ucfirst(str_singular($selectedNavigation->title) )}}
+			{{ strtoupper("Navigation : Acces Rapide ").ucfirst(str_singular($selectedNavigation->title) )}}
 		</option>
 		
 		<option class="text-capitalize" value="{{ $selectedNavigation->url.'/create' }}">

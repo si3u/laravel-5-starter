@@ -18,7 +18,7 @@ class CreateUserInvitesTable extends Migration
             $table->string('roles', '30');
             $table->string('token', '70');
             $table->integer('invited_by')->unsigned();
-            $table->timestamps('created_at');
+            $table->timestamp('created_at');
             $table->timestamp('claimed_at')->nullable();
         });
     }

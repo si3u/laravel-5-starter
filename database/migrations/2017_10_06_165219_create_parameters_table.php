@@ -18,6 +18,9 @@ class CreateParametersTable extends Migration
             $table->text('value');//->json('value');
             $table->softDeletes();
             $table->timestamps();
+            $table->integer('created_by')->unsigned();
+            $table->integer('updated_by')->unsigned()->nullable();
+            $table->integer('deleted_by')->unsigned()->nullable();
         });
     }
 

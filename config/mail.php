@@ -120,4 +120,5 @@ return [
         ],
     ],
 
+//	'pretend' => true, // DEVELOPPEMENT MODE, FOR SEND MAIL
 ];

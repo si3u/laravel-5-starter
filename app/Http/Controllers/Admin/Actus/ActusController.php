@@ -47,8 +47,6 @@ class ActusController extends AdminController
 	{
 	    $this->validate($request, Actus::$rules);
 		
-		Actus::setSummary($request);
-
         $this->createEntry(Actus::class, $request->all());
 
 		notify()->info("Info", "Vous pouvez désormais attacher des &Eacute;tiquettes (Tags) à cette nouvelle Actualité.");
